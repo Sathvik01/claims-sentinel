@@ -63,12 +63,15 @@ def render_invoice(path: Path, *, provider: dict, invoice_no: str | None, invoic
 
 
 def render_discharge_summary(path: Path, *, provider: dict, patient: str, member_id: str, admission: date,
-                             discharge: date, diagnosis: str, text: str) -> None:
+                             discharge: date, diagnosis: str, text: str, room: str | None = None) -> None:
     doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm)
+    stay = (discharge - admission).days
+    room_txt = f" &nbsp; Room: {room}" if room else ""
     story = [Paragraph(f"<b>{provider['name']}</b>", STYLES["Title"]),
              Paragraph("<b>DISCHARGE SUMMARY</b>", STYLES["Heading2"]),
              Paragraph(f"Patient: {patient} &nbsp; Member ID: {member_id}", STYLES["Normal"]),
              Paragraph(f"Admitted: {admission:%d-%m-%Y} &nbsp; Discharged: {discharge:%d-%m-%Y}", STYLES["Normal"]),
+             Paragraph(f"Length of stay: {stay} day(s){room_txt}", STYLES["Normal"]),
              Paragraph(f"Final diagnosis: {diagnosis} - {DIAGNOSES.get(diagnosis, '')}", STYLES["Normal"]),
              Spacer(1, 6 * mm), Paragraph(text, STYLES["BodyText"])]
     doc.build(story)
@@ -117,3 +120,49 @@ def write_documents(gen, out: Path) -> None:
               "Laparoscopic appendectomy performed on day 2 under general anaesthesia. Post-operative course "
               "uneventful. Stayed in a private room for 3 days. Discharged in stable condition on oral "
               f"antibiotics. Follow-up after 7 days ({hero.discharge + timedelta(days=7):%d-%m-%Y})."))
+
+    # Image samples for the document-integrity agent. Seeds: the resubmitted bill's claim plus other paid
+    # bills — several from the same hospital as the genuine new bill, to test same-template look-alikes.
+    import tempfile
+
+    from app.synthetic.forensic_samples import write_forensic_samples
+
+    genuine_provider = m1["_policy"]["_home"]["provider_id"]
+    same_hosp = [c for c in gen.claims if c.status == "PAID" and c.claim_type == "INPATIENT"
+                 and c.provider["provider_id"] == genuine_provider and c is not paid][:4]
+    others = [c for c in gen.claims if c.status == "PAID" and c.claim_type == "INPATIENT"
+              and c not in same_hosp and c is not paid][:3]
+    with tempfile.TemporaryDirectory() as tmp:
+        seed_pdfs = {}
+        for c in [paid, *same_hosp, *others]:
+            p = Path(tmp) / f"{c.claim_id}.pdf"
+            render_invoice(p, provider=c.provider, invoice_no=c.invoice_no, invoice_date=c.end,
+                           patient=c.member["name"], member_id=c.member["member_id"], policy_no=c.policy["policy_no"],
+                           claim_type=c.claim_type, admission=c.admission, discharge=c.discharge,
+                           diagnosis=c.diagnosis, lines=c.lines)
+            seed_pdfs[c.claim_id] = p
+        write_forensic_samples(out, out / "invoice_new_room_over_limit.pdf",
+                               out / f"invoice_resubmitted_{paid.claim_id}.pdf", seed_pdfs)
+
+
+def write_claim_evidence(gen, out: Path) -> int:
+    """documents/claims/{claim_id}_invoice.pdf and _discharge.pdf for claims tagged 'docset'."""
+    out.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for c in gen.claims:
+        if "docset" not in c.tags:
+            continue
+        lines = c.doc_lines
+        render_invoice(out / f"{c.claim_id}_invoice.pdf", provider=c.provider, invoice_no=c.invoice_no,
+                       invoice_date=c.doc_discharge, patient=c.member["name"], member_id=c.member["member_id"],
+                       policy_no=c.policy["policy_no"], claim_type=c.claim_type, admission=c.doc_admission,
+                       discharge=c.doc_discharge, diagnosis=c.diagnosis, lines=lines)
+        room = next((l["description"].split(" (")[0] for l in lines if l["category"] == "room"), None)
+        render_discharge_summary(
+            out / f"{c.claim_id}_discharge.pdf", provider=c.provider, patient=c.member["name"],
+            member_id=c.member["member_id"], admission=c.doc_admission, discharge=c.doc_discharge,
+            diagnosis=c.diagnosis, room=room,
+            text=(f"Admitted with {DIAGNOSES.get(c.diagnosis, c.diagnosis).lower()}. Treated and discharged in "
+                  "stable condition with advice for follow-up."))
+        n += 1
+    return n

@@ -96,6 +96,8 @@ class MemberRow(BaseModel):
     gender: Literal["M", "F", "O"]
     dob: FlexDate
     enrolled_date: FlexDate
+    phone: str | None = None
+    address: str | None = None
 
 
 class ProviderRow(BaseModel):
@@ -123,6 +125,7 @@ class ClaimRow(BaseModel):
     proposed_settlement: Money | None = None
     submitted_date: FlexDate
     status: Literal["PENDING", "PAID"] = "PENDING"
+    payout_account: str | None = None
 
     @model_validator(mode="after")
     def _dates(self):

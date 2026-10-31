@@ -29,6 +29,11 @@ def reset_db() -> None:
     SQLModel.metadata.create_all(engine)
 
 
+@event.listens_for(Session, "after_rollback")
+def _forget_audit_head(session):
+    session.info.pop("audit_head", None)  # uncommitted events were discarded
+
+
 def get_session() -> Iterator[Session]:
     with Session(engine) as session:
         yield session

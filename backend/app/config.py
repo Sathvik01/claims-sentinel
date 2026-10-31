@@ -18,6 +18,11 @@ class Settings(BaseSettings):
     groq_vision_model: str = "qwen/qwen3.8-27b"  # image / scanned-document input (JSON mode)
     llm_timeout_s: int = 60
 
+    # Auth (demo defaults — set JWT_SECRET in backend/.env for anything shared)
+    jwt_secret: str = "claims-sentinel-dev-secret-change-me-32b"
+    token_minutes: int = 480
+    demo_mode: bool = True
+
     # Detection thresholds
     amount_tolerance: float = 1.0
     near_dup_threshold: float = 0.70

@@ -26,7 +26,7 @@ export default function Ingestion() {
 
   return (
     <div className="space-y-6">
-      <PageHeader index="03" section="Sources" title="Data ingestion"
+      <PageHeader index="05" section="Sources" title="Data ingestion"
         desc="Upload CSV, Excel or JSON. Every row is validated against its schema and referential links; rejected rows and warnings are itemised — nothing is dropped silently." />
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">

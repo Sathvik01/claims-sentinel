@@ -46,7 +46,7 @@ export default function Alerts() {
   return (
     <div className="space-y-4">
       <div>
-        <PageHeader index="02" section="Review queue" title="Alerts"
+        <PageHeader index="04" section="Review queue" title="Alerts"
           desc="Every finding with the rule or pattern behind it. Select a row to review the evidence and record a decision."
           meta={<>
             <Meta label="Findings" value={q.data ? q.data.total.toLocaleString('en-IN') : '—'} />

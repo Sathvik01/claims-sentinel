@@ -52,6 +52,14 @@ CHECKS = {
     "SETTLEMENT_MISCALC": ["Recompute deductible, co-pay and sum-insured cap", "Correct the settlement before payment"],
     "PROVIDER_OUTLIER": ["Compare with the provider's agreed tariff", "Review whether a higher-cost variant was used"],
     "INCOMPLETE_EVIDENCE": ["Request the missing documents before assessing", "Re-run the analysis once received"],
+    "DUPLICATE_DOCUMENT": ["Open both documents side by side and compare patient, dates and amounts",
+                           "Ask the provider whether this bill was already billed under the matched claim"],
+    "RELATED_CLAIMS": ["Open the linked claims and compare claimant, provider, invoice and bank details",
+                       "Confirm the relationship with the provider or claimants; refer to SIU if unexplained"],
+    "DOCUMENT_MISMATCH": ["Check the highlighted values against the source document page",
+                          "Settle on the document value unless the provider issues a corrected bill"],
+    "DOCUMENT_TAMPER": ["Inspect the highlighted regions on the original document",
+                        "Request the original bill directly from the provider before settlement"],
 }
 
 

@@ -47,6 +47,8 @@ class Member(SQLModel, table=True):
     gender: str
     dob: date
     enrolled_date: date
+    phone: str | None = None
+    address: str | None = None
 
 
 class Provider(SQLModel, table=True):
@@ -76,6 +78,9 @@ class Claim(SQLModel, table=True):
     submitted_date: date
     status: str = "PENDING"  # PENDING (to be assessed) | PAID (history)
     source: str = "upload"
+    payout_account: str | None = None  # masked bank account the settlement is paid to
+    state: str = "SUBMITTED"  # lifecycle state, see app/workflow/lifecycle.py
+    assigned_to: str | None = Field(default=None, index=True)  # username
 
 
 class InvoiceLine(SQLModel, table=True):
@@ -134,7 +139,25 @@ class Document(SQLModel, table=True):
     extraction: dict[str, Any] | None = Field(default=None, sa_column=Column(JSON))
     error: str | None = None
     claim_id: str | None = None
+    doc_type: str = "INVOICE"  # INVOICE | DISCHARGE_SUMMARY | PRESCRIPTION | REPORT | OTHER
+    source: str = "upload"  # upload | portal | synthetic
+    uploaded_by: str | None = None
     created_at: datetime = Field(default_factory=_now)
+
+
+class ExtractedField(SQLModel, table=True):
+    """One value read from a document, with where it came from."""
+    id: int | None = Field(default=None, primary_key=True)
+    doc_id: int = Field(index=True)
+    claim_id: str | None = Field(default=None, index=True)
+    doc_type: str
+    path: str  # e.g. invoice_no, admission_date, lines[3].amount
+    value: str
+    page: int | None = None
+    source_text: str | None = None
+    verified: bool = False  # the source text was found on the page
+    method: str  # template | text-llm | vision-llm
+    model: str | None = None
 
 
 # ---------------------------------------------------------------- engine output
@@ -157,6 +180,7 @@ class ClaimAssessment(SQLModel, table=True):
     waterfall: list[dict[str, Any]] = Field(default_factory=list, sa_column=Column(JSON))
     checks: list[dict[str, Any]] = Field(default_factory=list, sa_column=Column(JSON))
     cleared: list[dict[str, Any]] = Field(default_factory=list, sa_column=Column(JSON))
+    documents: list[dict[str, Any]] = Field(default_factory=list, sa_column=Column(JSON))  # claim vs document rows
 
 
 class Finding(SQLModel, table=True):
@@ -192,4 +216,193 @@ class FindingAction(SQLModel, table=True):
     reason: str | None = None
     old_amount: float | None = None
     new_amount: float | None = None
+    created_at: datetime = Field(default_factory=_now)
+
+
+# ---------------------------------------------------------------- document integrity
+class DocumentScan(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    doc_id: int = Field(index=True)
+    status: str = "QUEUED"  # QUEUED | RUNNING | DONE | FAILED
+    mode: str | None = None  # agent | fixed pipeline
+    steps: list[dict[str, Any]] = Field(default_factory=list, sa_column=Column(JSON))
+    results: dict[str, Any] = Field(default_factory=dict, sa_column=Column(JSON))  # raw tool outputs by skill
+    score: float | None = None
+    level: str | None = None  # LOW | MEDIUM | HIGH
+    contributions: list[dict[str, Any]] = Field(default_factory=list, sa_column=Column(JSON))
+    report: dict[str, Any] | None = Field(default=None, sa_column=Column(JSON))
+    error: str | None = None
+    started_at: datetime = Field(default_factory=_now)
+    finished_at: datetime | None = None
+
+
+class ImageFingerprint(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    doc_id: int | None = Field(default=None, index=True)
+    claim_id: str | None = Field(default=None, index=True)
+    page: int = 0
+    phash: str
+    dhash: str
+    image_path: str
+    label: str
+    source: str  # upload | seed
+
+
+# ---------------------------------------------------------------- claim-level review
+class ClaimDecision(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    claim_id: str = Field(index=True)
+    decision: str  # APPROVED | PARTIALLY_APPROVED | REJECTED | ON_HOLD (legacy: ADJUSTED)
+    approved_amount: float | None = None
+    reason: str
+    user: str
+    role: str
+    status: str = "FINAL"  # FINAL | PENDING_APPROVAL | DECLINED
+    approved_by: str | None = None
+    approval_reason: str | None = None
+    created_at: datetime = Field(default_factory=_now)
+
+
+class ClaimLink(SQLModel, table=True):
+    """Cross-claim correlation links from the latest analysis run."""
+    id: int | None = Field(default=None, primary_key=True)
+    claim_a: str = Field(index=True)
+    claim_b: str = Field(index=True)
+    rule: str
+    strength: str  # STRONG | MEDIUM | WEAK
+    attribute: str
+    value: str
+    explanation: str
+
+
+# ---------------------------------------------------------------- identity, workflow, audit
+class User(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    username: str = Field(index=True, unique=True)
+    full_name: str
+    role: str  # POLICYHOLDER | HANDLER | ANALYST | SENIOR | SIU | ADMIN
+    password_hash: str
+    member_id: str | None = None  # policyholders only
+    policy_no: str | None = None
+    active: bool = True
+
+
+class AuditEvent(SQLModel, table=True):
+    """Append-only. `hash` chains every event to the previous one (sha256), so edits are detectable."""
+    id: int | None = Field(default=None, primary_key=True)
+    at: datetime = Field(default_factory=_now, index=True)
+    claim_id: str | None = Field(default=None, index=True)
+    entity: str  # claim | finding | recommendation | document | evidence_request | escalation | note | analysis | user
+    entity_id: str | None = None
+    action: str
+    actor: str  # username or system:<component>
+    actor_role: str
+    reason: str | None = None
+    before: dict[str, Any] | None = Field(default=None, sa_column=Column(JSON))
+    after: dict[str, Any] | None = Field(default=None, sa_column=Column(JSON))
+    ai_generated: bool = False
+    model: str | None = None
+    prev_hash: str
+    hash: str = Field(index=True)
+
+
+class Notification(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    username: str | None = Field(default=None, index=True)  # direct recipient
+    role: str | None = Field(default=None, index=True)  # or everyone in a role
+    claim_id: str | None = None
+    kind: str
+    message: str
+    read: bool = False
+    created_at: datetime = Field(default_factory=_now)
+
+
+class Recommendation(SQLModel, table=True):
+    """Immutable: a recalculation that changes the numbers adds a new version and supersedes the old row."""
+    id: int | None = Field(default=None, primary_key=True)
+    claim_id: str = Field(index=True)
+    finding_id: int = Field(index=True)
+    version: int = 1
+    superseded: bool = False
+    type: str  # REMOVE_LINE | CAP_DAILY_RATE | APPLY_COPAY | REJECT_CLAIM | ...
+    action: str  # one-line instruction
+    target_line_ids: list[str] = Field(default_factory=list, sa_column=Column(JSON))
+    original_amount: float
+    corrected_amount: float
+    delta: float
+    settlement_impact: float | None = None  # reduction of the amount payable
+    calculation: str
+    rule_id: str
+    clause_ref: str | None = None
+    clause_text: str | None = None
+    generated_by: str = "engine"
+    run_id: int | None = None
+    created_at: datetime = Field(default_factory=_now)
+
+
+
+# ---------------------------------------------------------------- investigation workflow
+class FindingDecision(SQLModel, table=True):
+    """Analyst decision on one finding. The recommendation it refers to is never modified."""
+    id: int | None = Field(default=None, primary_key=True)
+    finding_id: int = Field(index=True)
+    claim_id: str = Field(index=True)
+    decision: str  # CONFIRM_DISCREPANCY | FALSE_POSITIVE | REQUEST_EVIDENCE | ESCALATE | ACCEPT_CORRECTION
+    reason: str | None = None
+    recommendation_id: int | None = None
+    recommended_impact: float | None = None
+    override_impact: float | None = None  # analyst's figure when overriding the recommendation
+    status: str = "EFFECTIVE"  # EFFECTIVE | PENDING_APPROVAL | APPROVED | DECLINED
+    user: str
+    role: str
+    approved_by: str | None = None
+    approval_reason: str | None = None
+    created_at: datetime = Field(default_factory=_now)
+
+
+class EvidenceRequest(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    claim_id: str = Field(index=True)
+    finding_id: int | None = None
+    audience: str = "POLICYHOLDER"  # POLICYHOLDER | PROVIDER
+    message: str
+    doc_types: list[str] = Field(default_factory=list, sa_column=Column(JSON))
+    due_date: date
+    status: str = "OPEN"  # OPEN | RESPONDED | CLOSED
+    requested_by: str
+    created_at: datetime = Field(default_factory=_now)
+
+
+class EvidenceResponse(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    request_id: int = Field(index=True)
+    claim_id: str = Field(index=True)
+    responder: str
+    message: str | None = None
+    doc_ids: list[int] = Field(default_factory=list, sa_column=Column(JSON))
+    created_at: datetime = Field(default_factory=_now)
+
+
+class Escalation(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    claim_id: str = Field(index=True)
+    finding_id: int | None = None
+    target: str  # SENIOR | SIU
+    reason: str
+    raised_by: str
+    status: str = "OPEN"  # OPEN | RESOLVED
+    outcome: str | None = None  # SIU: SUBSTANTIATED | NOT_SUBSTANTIATED; senior: free text
+    resolution: str | None = None
+    resolved_by: str | None = None
+    created_at: datetime = Field(default_factory=_now)
+    resolved_at: datetime | None = None
+
+
+class Note(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    claim_id: str = Field(index=True)
+    author: str
+    role: str
+    visibility: str = "INTERNAL"  # INTERNAL | SIU
+    text: str
     created_at: datetime = Field(default_factory=_now)

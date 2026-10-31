@@ -1,11 +1,12 @@
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from sqlmodel import Session, col, select
 
+from app.auth.deps import require
 from app.db import get_session
 from app.ingestion.service import DATASETS, IngestError, ingest_file
 from app.models import IngestionBatch, IngestionError
 
-router = APIRouter(prefix="/api/ingest", tags=["ingestion"])
+router = APIRouter(prefix="/api/ingest", tags=["ingestion"], dependencies=[Depends(require("data:ingest"))])
 
 
 @router.get("/datasets")

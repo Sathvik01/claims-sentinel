@@ -9,7 +9,7 @@ export default function Quality() {
   const e = q.data
   return (
     <div className="space-y-6">
-      <PageHeader index="05" section="Model assurance" title="Detection quality"
+      <PageHeader index="07" section="Model assurance" title="Detection quality"
         desc={<>Findings scored against the synthetic dataset's ground truth: every planted leakage scenario, plus legitimate look-alikes that must <i>not</i> be flagged.</>} />
       <State loading={q.isLoading} error={q.error} empty={e && !e.available && (e.reason || 'Ground truth not available')}>
         {e?.available && (

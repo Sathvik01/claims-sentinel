@@ -41,6 +41,7 @@ RULE_FAMILIES = {
     "D2": "Duplicate line within claim",
     "D3": "Duplicate line across claims",
     "D4": "Near-duplicate claim",
+    "E1": "Claim vs documents (bill, discharge summary)",
 }
 
 

@@ -92,3 +92,59 @@ invoices for the document flow.
 
 **Current result on the sample data:** recall 100% and precision 100% at claim level, 0 false flags on
 299 lookalikes, and calculated leakage matching ground truth to ±₹1 on every scenario.
+
+---
+
+# Level 2 — investigation workspace, roles and policyholder portal
+
+## Sign in
+Every API route is guarded by FastAPI's OAuth2 password flow with JWT (`pyjwt`, `pwdlib`). The login page lists
+the demo accounts; the password for all of them is `demo1234`. Policyholder accounts appear after an admin runs
+**Load demo data**.
+
+| Role | Account | Responsibilities | Approval authority |
+|---|---|---|---|
+| Policyholder | e.g. `tanay033` (holder of CLM-DEMO-01) | File claims, upload evidence, answer requests, read decisions, ask for reconsideration | — |
+| Claims Handler | `handler` | Triage new submissions; fast-track clean claims | ≤ ₹50,000, no findings |
+| Claims Analyst | `analyst`, `analyst2` | Investigate assigned claims; decide every finding; propose the claim decision | ≤ ₹2,00,000 |
+| Senior Claims Reviewer | `senior` | Resolve escalations; approve overrides and over-authority decisions | unlimited |
+| SIU Investigator | `siu` | Resolve SIU referrals (substantiated / not); hold payment; SIU-only notes | — |
+| Claims Ops Admin | `admin` | Users, data ingestion, analysis runs, audit verification, quality metrics | decides nothing |
+
+How these rules are enforced:
+- **Permissions:** named permissions per role live in `backend/app/auth/permissions.py`, and each route uses
+  `require(permission)`.
+- **Maker-checker:** an override more than ₹10,000 away from the recommendation, or a claim decision above the
+  user's authority, waits for a senior. Nobody approves their own override or decision, and nobody resolves an
+  escalation they raised.
+- **Lifecycle:** claims move through `backend/app/workflow/lifecycle.py`:
+  - DRAFT → SUBMITTED → TRIAGE / INVESTIGATION
+  - INVESTIGATION ↔ INFO_REQUESTED / ESCALATED_* → PENDING_APPROVAL → APPROVED / PARTIALLY_APPROVED / REJECTED
+  - REJECTED → RECONSIDERATION
+
+  Policyholders only see Submitted · Under review · Action needed · Decision made · Paid.
+
+## Level 2 capabilities
+| Requirement | Where |
+|---|---|
+| Cross-claim correlation | `engine/correlation.py`: links claims through the same provider invoice on different policies, shared payout accounts, shared document images, the same incident, shared phone/address, and identical high-value services. Strong links and clusters of 3+ policies become **Related claims** findings, each listing the matching attributes |
+| Document & invoice analysis | `documents/evidence.py` + `engine/doc_compare.py`. Every extracted value keeps its page and source text and is *verified* only if that text is found on the page. Claim vs bill vs discharge summary yields lines missing from the bill, amounts above the bill, room days beyond the documented stay, and date or diagnosis differences |
+| Investigation workspace | `/investigations/:claim`: findings and corrections, evidence viewer and comparison, related-claims map, policy terms and rules, notes (internal / SIU-only), timeline |
+| Recommended corrections | `engine/recommendations.py`: typed corrections (remove line, cap daily rate, cap at sub-limit, apply co-pay, decline claim, …), each with original amount, corrected amount, calculation and clause. Stored as immutable versions |
+| Analyst decisions | Confirm discrepancy · False positive (with a reason) · Request evidence · Escalate to Senior or SIU · Accept correction (optionally with a reasoned override; the original recommendation is kept) |
+| Evidence & audit trail | `audit.py`: an append-only, SHA-256 hash-chained event log of analysis results, recommendations, decisions, overrides, requests, escalations, notes and policyholder actions, with actor and timestamp. `GET /api/audit/verify` detects any edit. Reports at `/api/investigations/{id}/report.pdf` and `.json` |
+| Policyholder portal | `/portal`: claim wizard (the bill is read for the policyholder to confirm), status tracking, answering requests with uploads, decision letter with a plain-language breakdown and PDF, reconsideration |
+
+## Ground truth
+The synthetic data adds scenarios 18–25: the same invoice on two policies, a payout-account ring, relatives sharing
+an address (must not be flagged), claim lines not on the bill, amounts above the bill, stays longer than the
+discharge summary, admission-date differences, and 40 claims whose documents match (must not be flagged). Claim-level
+precision and recall are 100% across all 25 scenarios.
+
+## Tests
+`cd backend && uv run pytest` runs 27 tests:
+- the Level 1 engine
+- forensics
+- RBAC
+- the investigation workflow: decisions, maker-checker, SIU, authority, tamper detection
+- the portal journey, which checks that no internal fields appear in portal responses

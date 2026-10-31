@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, inr, type DocumentRec, type Extraction, type FindingRow } from '../api'
+import ScanPanel, { LevelBadge } from '../components/ScanPanel'
 import { Badge, Button, Card, PageHeader, State, TypeBadge, inputCls, useMeta } from '../components/ui'
 
 const HEADER_FIELDS: [keyof Extraction, string][] = [
@@ -72,7 +73,7 @@ function Review({ doc }: { doc: DocumentRec }) {
             <label className="text-xs text-ink-2">Proposed settlement (optional)
               <input className={`${inputCls} mt-0.5 block w-40`} type="number" min={0} value={proposed} onChange={e => setProposed(e.target.value)} />
             </label>
-            <Button variant="primary" disabled={confirm.isPending || ext.lines.length === 0} title={ext.lines.length === 0 ? 'No invoice lines to create a claim from' : undefined} onClick={() => confirm.mutate()}>{confirm.isPending ? 'Validating & analysing…' : 'Create claim & analyse'}</Button>
+            <Button variant="primary" disabled={confirm.isPending || ext.lines.length === 0} title={ext.lines.length === 0 ? 'No invoice lines to create a claim from' : undefined} onClick={() => { if (doc.scan?.level === 'HIGH' && !window.confirm('The integrity agent rated this document HIGH risk (possible reuse or edits). Create the claim anyway? It will be flagged for investigation.')) return; confirm.mutate() }}>{confirm.isPending ? 'Validating & analysing…' : 'Create claim & analyse'}</Button>
           </div>
         )}
       </div>
@@ -96,7 +97,8 @@ function Review({ doc }: { doc: DocumentRec }) {
 export default function Documents() {
   const qc = useQueryClient()
   const { data: meta } = useMeta()
-  const docs = useQuery({ queryKey: ['documents'], queryFn: () => api.get<DocumentRec[]>('/api/documents') })
+  const docs = useQuery({ queryKey: ['documents'], queryFn: () => api.get<DocumentRec[]>('/api/documents'),
+    refetchInterval: q => (q.state.data?.some(d => d.scan && ['QUEUED', 'RUNNING'].includes(d.scan.status)) ? 2000 : false) })
   const [selected, setSelected] = useState<number | null>(null)
   const [file, setFile] = useState<File | null>(null)
   const upload = useMutation({
@@ -113,7 +115,7 @@ export default function Documents() {
 
   return (
     <div className="space-y-6">
-      <PageHeader index="04" section="Intake" title="Claim documents" desc={<>Upload a hospital bill or discharge summary. A Groq LLM extracts it into structured fields (text PDFs via the text model; images and scans via the vision model); you review and correct before it becomes a claim and passes through the same validation and detection.</>} />
+      <PageHeader index="06" section="Intake" title="Claim documents" desc={<>Upload a hospital bill or discharge summary. A Groq LLM extracts it into structured fields (text PDFs via the text model; images and scans via the vision model); you review and correct before it becomes a claim and passes through the same validation and detection.</>} />
       {meta && !meta.llm_enabled && (
         <div className="border-l-2 border-warn bg-warn-bg px-3 py-2 text-[12.5px] text-warn">Document extraction needs a Groq API key: add <code>GROQ_API_KEY=…</code> to <code>backend/.env</code> and restart the API. Everything else works without it.</div>
       )}
@@ -145,7 +147,11 @@ export default function Documents() {
                   <li key={d.id}>
                     <button onClick={() => setSelected(d.id)} className={`grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2 border-l-2 px-3 py-1.5 text-left hover:bg-surface ${selected === d.id ? 'border-ink bg-surface' : 'border-transparent'}`}>
                       <span className="num truncate text-[12px] text-ink">{d.filename}</span>
-                      <Badge tone={d.status === 'FAILED' ? 'critical' : d.status === 'CONFIRMED' ? 'good' : 'info'}>{d.status.toLowerCase()}</Badge>
+                      <span className="flex items-center gap-1">
+                        {d.scan && (d.scan.status === 'DONE' ? <LevelBadge level={d.scan.level} />
+                          : d.scan.status === 'FAILED' ? null : <Badge tone="info">scanning…</Badge>)}
+                        <Badge tone={d.status === 'FAILED' ? 'critical' : d.status === 'CONFIRMED' ? 'good' : 'info'}>{d.status.toLowerCase()}</Badge>
+                      </span>
                       <span className="num col-span-2 text-[10.5px] text-ink-3">#{d.id} · {new Date(d.created_at).toLocaleString([], { dateStyle: 'short', timeStyle: 'short' })}{d.claim_id ? ` · ${d.claim_id}` : ''}</span>
                     </button>
                   </li>
@@ -171,6 +177,7 @@ export default function Documents() {
             </Card>
           )}
           {doc?.extraction && <Review key={doc.id} doc={doc} />}
+          {doc && <div className="mt-6"><ScanPanel key={`scan${doc.id}`} docId={doc.id} /></div>}
         </div>
       </div>
     </div>

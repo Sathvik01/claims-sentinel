@@ -7,10 +7,13 @@ CLM-001452,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,82200.0,
 CLM-001453,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,440.0,copy of seq 399
 CLM-001454,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,59346.0,copy of seq 120
 CLM-001455,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,30.0,copy of seq 113
+CLM-001457,01_exact_duplicate_claim,DUPLICATE_CLAIM,NO_PAYABLE_IMPACT,,copy of seq 1131
 CLM-001459,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,22620.0,copy of seq 420
 CLM-001460,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,1020.0,copy of seq 217
 CLM-001461,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,33816.0,copy of seq 169
 CLM-001470,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,2860.0,copy of seq 648
+CLM-001565,01_exact_duplicate_claim,DUPLICATE_CLAIM,NO_PAYABLE_IMPACT,,copy of seq 791
+CLM-001932,01_exact_duplicate_claim,DUPLICATE_CLAIM,NO_PAYABLE_IMPACT,,copy of seq 1880
 CLM-001496,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,328.0,
 CLM-001510,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,330.0,
 CLM-001638,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,536.0,
@@ -33,14 +36,20 @@ CLM-002210,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,1104.0,
 CLM-002219,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,310.0,
 CLM-002276,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,297.0,
 CLM-002297,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,296.0,
+CLM-002309,02_duplicate_line_within,DUPLICATE_LINE,NO_PAYABLE_IMPACT,,
 CLM-002339,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,954.0,
 CLM-002474,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,670.0,
 CLM-001504,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,590.0,
+CLM-001604,03_duplicate_line_across,DUPLICATE_LINE,NO_PAYABLE_IMPACT,,
+CLM-001628,03_duplicate_line_across,DUPLICATE_LINE,NO_PAYABLE_IMPACT,,
 CLM-001696,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,750.0,
+CLM-001739,03_duplicate_line_across,DUPLICATE_LINE,NO_PAYABLE_IMPACT,,
+CLM-001780,03_duplicate_line_across,DUPLICATE_LINE,NO_PAYABLE_IMPACT,,
 CLM-001798,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,1560.0,
 CLM-002027,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,400.0,
 CLM-002038,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,384.0,
 CLM-002137,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,468.0,
+CLM-002227,03_duplicate_line_across,DUPLICATE_LINE,NO_PAYABLE_IMPACT,,
 CLM-002284,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,630.0,
 CLM-002308,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,340.0,
 CLM-002324,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,230.0,
@@ -76,6 +85,8 @@ CLM-001933,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,11250.0,
 CLM-001942,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,3000.0,
 CLM-001960,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,9000.0,
 CLM-002043,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,5400.0,
+CLM-002048,05_room_rent_limit,ROOM_RENT_LIMIT,NO_PAYABLE_IMPACT,,
+CLM-002049,05_room_rent_limit,ROOM_RENT_LIMIT,NO_PAYABLE_IMPACT,,
 CLM-002078,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,3000.0,
 CLM-002113,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,10000.0,
 CLM-002160,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,12500.0,
@@ -99,13 +110,17 @@ CLM-002156,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,6000.0,
 CLM-002162,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,3600.0,
 CLM-002202,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,8000.0,
 CLM-001477,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1287.0,
+CLM-001524,07_excluded_consumables,EXCLUDED_SERVICE,NO_PAYABLE_IMPACT,,
+CLM-001558,07_excluded_consumables,EXCLUDED_SERVICE,NO_PAYABLE_IMPACT,,
 CLM-001560,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1608.0,
 CLM-001589,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1750.0,
+CLM-001600,07_excluded_consumables,EXCLUDED_SERVICE,NO_PAYABLE_IMPACT,,
 CLM-001658,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,2440.0,
 CLM-001775,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1050.0,
 CLM-001808,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,870.0,
 CLM-001814,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1440.0,
 CLM-001834,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,2420.0,
+CLM-001872,07_excluded_consumables,EXCLUDED_SERVICE,NO_PAYABLE_IMPACT,,
 CLM-001928,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1470.0,
 CLM-001945,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,558.0,
 CLM-001955,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,470.0,
@@ -116,6 +131,7 @@ CLM-002045,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1503.0,
 CLM-002085,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1860.0,
 CLM-002086,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1029.0,
 CLM-002129,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1280.0,
+CLM-002196,07_excluded_consumables,EXCLUDED_SERVICE,NO_PAYABLE_IMPACT,,
 CLM-002229,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1460.0,
 CLM-002275,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,2268.0,
 CLM-002310,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1160.0,
@@ -127,8 +143,10 @@ CLM-001478,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,78730.0,
 CLM-001495,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,97040.0,
 CLM-001603,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,65856.0,
 CLM-001744,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,77656.0,
+CLM-002070,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,NO_PAYABLE_IMPACT,,
 CLM-002136,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,96872.0,
 CLM-002233,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,75600.0,
+CLM-002322,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,NO_PAYABLE_IMPACT,,
 CLM-001907,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,1341.0,
 CLM-001959,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,9126.0,
 CLM-002061,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,88010.0,
@@ -155,6 +173,7 @@ CLM-001768,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,1500.0,ambulance
 CLM-001824,11_sub_limit,FREQUENCY_CAP,CONFIRMED_VIOLATION,1836.0,10 prior + 6 sessions vs cap 12
 CLM-001958,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,13000.0,cataract
 CLM-002121,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,1350.0,ambulance
+CLM-002186,11_sub_limit,SUB_LIMIT,NO_PAYABLE_IMPACT,,cataract
 CLM-002251,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,2000.0,ambulance
 CLM-002254,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,1600.0,ambulance
 CLM-002267,11_sub_limit,FREQUENCY_CAP,CONFIRMED_VIOLATION,1696.0,10 prior + 6 sessions vs cap 12
@@ -173,11 +192,13 @@ CLM-002034,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,d
 CLM-002059,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,2500.0,deductible not applied
 CLM-002099,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,167.0,co-pay not applied
 CLM-002116,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,69440.0,sum insured exceeded
+CLM-002148,12_settlement_miscalc,SETTLEMENT_MISCALC,NO_PAYABLE_IMPACT,,co-pay not applied
 CLM-002174,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,deductible not applied
 CLM-002212,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,2502.0,co-pay 10% instead of 20%
 CLM-002218,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,4610.0,co-pay 10% instead of 20%
 CLM-002282,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,deductible not applied
 CLM-002291,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,3276.0,co-pay 10% instead of 20%
+CLM-002364,12_settlement_miscalc,SETTLEMENT_MISCALC,NO_PAYABLE_IMPACT,,co-pay not applied
 CLM-002382,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,3070.0,co-pay not applied
 CLM-002432,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,21001.0,sum insured exceeded
 CLM-002450,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,329.0,co-pay 10% instead of 20%
@@ -188,6 +209,7 @@ CLM-001772,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,8000.0,
 CLM-001828,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,5000.0,
 CLM-001920,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,1800.0,
 CLM-002040,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,4000.0,
+CLM-002197,13_arithmetic_error,ARITHMETIC_ERROR,NO_PAYABLE_IMPACT,,
 CLM-002247,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,2250.0,
 CLM-002325,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,1800.0,
 CLM-002386,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,7000.0,
@@ -551,3 +573,72 @@ CLM-DEMO-01,17_combined_hero,DUPLICATE_LINE,CONFIRMED_VIOLATION,25882.0,Problem-
 CLM-DEMO-01,17_combined_hero,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,25882.0,Problem-statement example
 CLM-DEMO-01,17_combined_hero,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,25882.0,Problem-statement example
 CLM-DEMO-01,17_combined_hero,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,25882.0,Problem-statement example
+CLM-001503,18_cross_policy_invoice,RELATED_CLAIMS,SUSPECTED_PATTERN,,invoice PD04/INV/2026/001466 on CLM-001503 and CLM-001998
+CLM-001623,18_cross_policy_invoice,RELATED_CLAIMS,SUSPECTED_PATTERN,,invoice KMH13/INV/2026/001299 on CLM-001623 and CLM-001669
+CLM-001669,18_cross_policy_invoice,RELATED_CLAIMS,SUSPECTED_PATTERN,,invoice KMH13/INV/2026/001299 on CLM-001623 and CLM-001669
+CLM-001998,18_cross_policy_invoice,RELATED_CLAIMS,SUSPECTED_PATTERN,,invoice PD04/INV/2026/001466 on CLM-001503 and CLM-001998
+CLM-001532,19_related_party_ring,RELATED_CLAIMS,SUSPECTED_PATTERN,,payout account YESB0398069 XXXXXX1763 shared by 3 policies
+CLM-001973,19_related_party_ring,RELATED_CLAIMS,SUSPECTED_PATTERN,,payout account YESB0398069 XXXXXX1763 shared by 3 policies
+CLM-002226,19_related_party_ring,RELATED_CLAIMS,SUSPECTED_PATTERN,,payout account YESB0398069 XXXXXX1763 shared by 3 policies
+CLM-001827,20_shared_address_lookalike,NONE,NONE,,relatives on separate policies share address/phone: must not be flagged
+CLM-002498,20_shared_address_lookalike,NONE,NONE,,relatives on separate policies share address/phone: must not be flagged
+CLM-001502,21_claim_line_not_on_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,3300.0,RAD-ECHO not on bill
+CLM-001553,21_claim_line_not_on_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,594.0,LAB-LFT not on bill
+CLM-001706,21_claim_line_not_on_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,1130.0,LAB-LFT not on bill
+CLM-001785,21_claim_line_not_on_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,2420.0,RAD-ECHO not on bill
+CLM-002224,21_claim_line_not_on_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,912.0,LAB-LFT not on bill
+CLM-002163,22_claim_amount_above_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,8312.0,PRC-LCH +10390.0
+CLM-002312,22_claim_amount_above_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,11016.0,PRC-LCH +12240.0
+CLM-002328,22_claim_amount_above_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,14280.0,PRC-LCH +14280.0
+CLM-002407,22_claim_amount_above_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,5610.0,PRC-APP +5610.0
+CLM-002438,22_claim_amount_above_bill,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,1020.0,PHA-MED +1020.0
+CLM-001497,23_stay_longer_than_discharge_summary,DOCUMENT_MISMATCH,NO_PAYABLE_IMPACT,,2 room day(s) beyond the stay
+CLM-001523,23_stay_longer_than_discharge_summary,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,4800.0,2 room day(s) beyond the stay
+CLM-002063,23_stay_longer_than_discharge_summary,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,15000.0,2 room day(s) beyond the stay
+CLM-002280,23_stay_longer_than_discharge_summary,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,14000.0,2 room day(s) beyond the stay
+CLM-002362,23_stay_longer_than_discharge_summary,DOCUMENT_MISMATCH,CONFIRMED_VIOLATION,4500.0,2 room day(s) beyond the stay
+CLM-001700,24_admission_date_mismatch,DOCUMENT_MISMATCH,SUSPECTED_PATTERN,,claim admission date earlier than discharge summary
+CLM-002076,24_admission_date_mismatch,DOCUMENT_MISMATCH,SUSPECTED_PATTERN,,claim admission date earlier than discharge summary
+CLM-002238,24_admission_date_mismatch,DOCUMENT_MISMATCH,SUSPECTED_PATTERN,,claim admission date earlier than discharge summary
+CLM-002258,24_admission_date_mismatch,DOCUMENT_MISMATCH,SUSPECTED_PATTERN,,claim admission date earlier than discharge summary
+CLM-002482,24_admission_date_mismatch,DOCUMENT_MISMATCH,SUSPECTED_PATTERN,,claim admission date earlier than discharge summary
+CLM-001506,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001597,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001618,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001650,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001670,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001693,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001695,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001715,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001727,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001729,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001748,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001754,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001776,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001801,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001837,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001914,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001923,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001991,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-001993,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002028,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002056,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002125,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002139,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002161,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002166,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002243,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002244,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002261,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002268,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002273,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002326,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002357,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002367,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002371,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002392,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002393,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002409,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002422,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002441,25_documents_consistent,NONE,NONE,,claim matches its documents
+CLM-002448,25_documents_consistent,NONE,NONE,,claim matches its documents

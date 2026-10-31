@@ -1,8 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api, inr, type ClaimBundle, type Explanation, type FindingDetail, type FindingRow } from '../api'
-import { BasisBadge, Badge, Button, Card, SeverityBadge, State, StatusBadge, TypeBadge, inputCls } from '../components/ui'
+import { BasisBadge, Badge, Button, Card, SeverityBadge, State, StatusBadge, TypeBadge } from '../components/ui'
 
 const OUTCOME: Record<string, { icon: string; cls: string; label: string }> = {
   PASS: { icon: '✓', cls: 'text-good', label: 'Pass' },
@@ -11,7 +10,7 @@ const OUTCOME: Record<string, { icon: string; cls: string; label: string }> = {
   NA: { icon: '–', cls: 'text-ink-3', label: 'Not applicable' },
 }
 
-function KV({ k, v }: { k: string; v: React.ReactNode }) {
+export function KV({ k, v }: { k: string; v: React.ReactNode }) {
   return (
     <div className="flex justify-between gap-3 py-1 text-[12.5px]">
       <span className="text-ink-2">{k}</span><span className="tabular text-right font-medium">{v ?? '—'}</span>
@@ -19,7 +18,7 @@ function KV({ k, v }: { k: string; v: React.ReactNode }) {
   )
 }
 
-function Evidence({ f }: { f: FindingRow }) {
+export function Evidence({ f }: { f: FindingRow }) {
   const ev = (f.evidence || {}) as Record<string, unknown>
   const parts = ev.score_parts as Record<string, number> | undefined
   const skip = new Set(['score_parts', 'reconciliation', 'clarification_request', 'missing_fields', 'impact', 'terms'])
@@ -54,7 +53,7 @@ function Evidence({ f }: { f: FindingRow }) {
   )
 }
 
-function Waterfall({ a, flaggedTitles }: { a: NonNullable<ClaimBundle['assessment']>; flaggedTitles: Set<string> }) {
+export function Waterfall({ a, flaggedTitles }: { a: NonNullable<ClaimBundle['assessment']>; flaggedTitles: Set<string> }) {
   const max = Math.max(...a.waterfall.map(s => Math.abs(s.amount)), 1)
   return (
     <div>
@@ -85,7 +84,7 @@ function Waterfall({ a, flaggedTitles }: { a: NonNullable<ClaimBundle['assessmen
   )
 }
 
-function Lines({ b, highlight }: { b: ClaimBundle; highlight: Set<string> }) {
+export function Lines({ b, highlight }: { b: ClaimBundle; highlight: Set<string> }) {
   const other = new Set(b.findings.flatMap(f => f.line_ids))
   return (
     <div className="overflow-x-auto">
@@ -111,7 +110,7 @@ function Lines({ b, highlight }: { b: ClaimBundle; highlight: Set<string> }) {
   )
 }
 
-function Compare({ a, b }: { a: ClaimBundle; b: ClaimBundle }) {
+export function Compare({ a, b }: { a: ClaimBundle; b: ClaimBundle }) {
   const rows: [string, (x: ClaimBundle) => React.ReactNode][] = [
     ['Claim', x => x.claim.claim_id], ['Status', x => x.claim.status], ['Invoice no.', x => x.claim.invoice_no],
     ['Provider', x => x.provider?.name], ['Incident', x => x.claim.incident_date], ['Admission → discharge', x => `${x.claim.admission_date ?? '—'} → ${x.claim.discharge_date ?? '—'}`],
@@ -139,17 +138,10 @@ function Compare({ a, b }: { a: ClaimBundle; b: ClaimBundle }) {
   )
 }
 
-export default function AlertDetail({ role }: { role: string }) {
+export default function AlertDetail() {
   const { id } = useParams()
   const qc = useQueryClient()
   const q = useQuery({ queryKey: ['finding', id], queryFn: () => api.get<FindingDetail>(`/api/findings/${id}`) })
-  const [mode, setMode] = useState<'' | 'CORRECT' | 'DISMISS'>('')
-  const [reason, setReason] = useState('')
-  const [amount, setAmount] = useState('')
-  const act = useMutation({
-    mutationFn: (body: { action: string; reason?: string; amount?: number }) => api.post<FindingDetail>(`/api/findings/${id}/action`, body),
-    onSuccess: d => { qc.setQueryData(['finding', id], d); qc.invalidateQueries({ queryKey: ['summary'] }); qc.invalidateQueries({ queryKey: ['findings'] }); setMode(''); setReason(''); setAmount('') },
-  })
   const explain = useMutation({
     mutationFn: (refresh: boolean) => api.post<Explanation>(`/api/findings/${id}/explain?refresh=${refresh}`),
     onSuccess: () => qc.invalidateQueries({ queryKey: ['finding', id] }),
@@ -161,13 +153,12 @@ export default function AlertDetail({ role }: { role: string }) {
         const { finding: f, claim: b, related, actions } = q.data
         const expl = (explain.data || f.ai_explanation) as Explanation | null | undefined
         const flaggedTitles = new Set(b.findings.filter(x => x.finding_type === 'CONFIRMED_VIOLATION').map(x => x.title))
-        const readOnly = role !== 'reviewer'
         return (
           <div className="space-y-6">
             <div className="grid gap-4 border-b-2 border-rule pb-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
               <div className="min-w-0">
                 <div className="eyebrow">
-                  <Link to="/alerts" className="text-accent hover:underline">02 — Alerts</Link> / Finding #{f.id} / {f.category_label}
+                  <Link to="/alerts" className="text-accent hover:underline">04 — Alerts</Link> / Finding #{f.id} / {f.category_label}
                 </div>
                 <h1 className="mt-1 font-serif text-[28px] font-semibold leading-tight tracking-[-0.01em]">{f.title}</h1>
                 <div className="mt-2 flex flex-wrap items-center gap-1.5">
@@ -239,40 +230,16 @@ export default function AlertDetail({ role }: { role: string }) {
               </div>
 
               <div className="space-y-6">
-                <Card code="R" title="Review decision">
-                  {readOnly && <p className="mb-3 rounded-lg bg-surface p-2 text-xs text-ink-2">Viewer role is read-only. Switch to Reviewer to act.</p>}
-                  <div className="flex flex-wrap gap-2">
-                    <Button variant="primary" disabled={readOnly || act.isPending || f.status === 'CONFIRMED'} onClick={() => act.mutate({ action: 'CONFIRM' })}>Confirm</Button>
-                    <Button disabled={readOnly || act.isPending} onClick={() => { setMode('CORRECT'); setAmount(String(f.effective_amount)) }}>Correct amount</Button>
-                    <Button variant="danger" disabled={readOnly || act.isPending || f.status === 'DISMISSED'} onClick={() => setMode('DISMISS')}>Dismiss</Button>
-                    {f.status !== 'OPEN' && <Button variant="ghost" disabled={readOnly || act.isPending} onClick={() => act.mutate({ action: 'REOPEN' })}>Reopen</Button>}
-                  </div>
-                  {mode && (
-                    <form className="mt-3 space-y-2" onSubmit={e => { e.preventDefault(); act.mutate({ action: mode, reason, amount: mode === 'CORRECT' ? Number(amount) : undefined }) }}>
-                      {mode === 'CORRECT' && (
-                        <label className="block text-xs text-ink-2">Corrected leakage amount (₹)
-                          <input className={`${inputCls} mt-1 w-full`} type="number" min={0} step="0.01" required value={amount} onChange={e => setAmount(e.target.value)} />
-                        </label>
-                      )}
-                      <label className="block text-xs text-ink-2">Reason (required)
-                        <textarea className={`${inputCls} mt-1 w-full`} rows={2} required value={reason} onChange={e => setReason(e.target.value)}
-                          placeholder={mode === 'DISMISS' ? 'e.g. separate episode confirmed by hospital' : 'e.g. room category upgrade approved'} />
-                      </label>
-                      <div className="flex gap-2">
-                        <Button type="submit" variant="primary" disabled={act.isPending}>Save {mode === 'CORRECT' ? 'correction' : 'dismissal'}</Button>
-                        <Button variant="ghost" onClick={() => setMode('')}>Cancel</Button>
-                      </div>
-                    </form>
-                  )}
-                  {act.error && <p className="mt-2 text-[12.5px] text-critical">{(act.error as Error).message}</p>}
-                  <div className="mt-4 border-b border-line pt-3">
-                    <div className="mb-2 text-xs font-medium text-ink-2">Audit trail</div>
+                <Card code="R" title="Review">
+                  <p className="text-[12.5px] text-ink-2">Decisions are recorded in the claim's investigation workspace, alongside the recommended correction, related claims and documents.</p>
+                  <div className="mt-3"><Link to={`/investigations/${f.claim_id}`}><Button variant="primary">Open investigation {f.claim_id}</Button></Link></div>
+                  <div className="mt-4 border-t border-line pt-3">
+                    <div className="eyebrow mb-2">Decisions on this finding</div>
                     {actions.length === 0 ? <p className="text-xs text-ink-3">No decisions yet.</p> : (
                       <ol className="space-y-2">
-                        {actions.map(a => (
+                        {(actions as unknown as { id: number; decision: string; user: string; status: string; reason: string | null; created_at: string }[]).map(a => (
                           <li key={a.id} className="text-xs">
-                            <span className="font-medium">{a.action.toLowerCase()}</span> by {a.user} · {new Date(a.created_at).toLocaleString()}
-                            {a.old_amount !== a.new_amount && <div className="tabular text-ink-2">{inr(a.old_amount, 2)} → {inr(a.new_amount, 2)}</div>}
+                            <span className="font-medium">{a.decision.toLowerCase().replace(/_/g, ' ')}</span> by {a.user} · {a.status.toLowerCase()} · {new Date(a.created_at).toLocaleString()}
                             {a.reason && <div className="text-ink-2">“{a.reason}”</div>}
                           </li>
                         ))}

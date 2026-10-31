@@ -36,6 +36,10 @@ ARITHMETIC_ERROR = "ARITHMETIC_ERROR"
 SETTLEMENT_MISCALC = "SETTLEMENT_MISCALC"
 PROVIDER_OUTLIER = "PROVIDER_OUTLIER"
 INCOMPLETE_EVIDENCE = "INCOMPLETE_EVIDENCE"
+DUPLICATE_DOCUMENT = "DUPLICATE_DOCUMENT"
+DOCUMENT_TAMPER = "DOCUMENT_TAMPER"
+RELATED_CLAIMS = "RELATED_CLAIMS"
+DOCUMENT_MISMATCH = "DOCUMENT_MISMATCH"
 
 CATEGORY_LABELS = {
     DUPLICATE_CLAIM: "Duplicate claim",
@@ -53,6 +57,10 @@ CATEGORY_LABELS = {
     SETTLEMENT_MISCALC: "Settlement calculation",
     PROVIDER_OUTLIER: "Unusual provider billing",
     INCOMPLETE_EVIDENCE: "Incomplete evidence",
+    DUPLICATE_DOCUMENT: "Reused document image",
+    DOCUMENT_TAMPER: "Document tampering",
+    RELATED_CLAIMS: "Related claims",
+    DOCUMENT_MISMATCH: "Claim vs document mismatch",
 }
 
 # Services that legitimately recur on separate dates within/across claims.

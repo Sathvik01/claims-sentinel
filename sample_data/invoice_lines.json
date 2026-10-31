@@ -122475,7 +122475,7 @@
  {
   "line_id":"CLM-001442-L01",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-23",
   "service_code":"ROOM-WRD",
@@ -122488,7 +122488,7 @@
  {
   "line_id":"CLM-001442-L02",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-23",
   "service_code":"CON-IP",
@@ -122501,7 +122501,7 @@
  {
   "line_id":"CLM-001442-L03",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-24",
   "service_code":"CON-IP",
@@ -122514,7 +122514,7 @@
  {
   "line_id":"CLM-001442-L04",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-25",
   "service_code":"CON-IP",
@@ -122527,7 +122527,7 @@
  {
   "line_id":"CLM-001442-L05",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-23",
   "service_code":"LAB-CBC",
@@ -122540,7 +122540,7 @@
  {
   "line_id":"CLM-001442-L06",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-24",
   "service_code":"PRC-LCH",
@@ -122553,7 +122553,7 @@
  {
   "line_id":"CLM-001442-L07",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-24",
   "service_code":"OT-CHG",
@@ -122566,7 +122566,7 @@
  {
   "line_id":"CLM-001442-L08",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-24",
   "service_code":"ANS-GEN",
@@ -122579,7 +122579,7 @@
  {
   "line_id":"CLM-001442-L09",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-25",
   "service_code":"PHA-MED",
@@ -122592,7 +122592,7 @@
  {
   "line_id":"CLM-001442-L10",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-23",
   "service_code":"RAD-USG",
@@ -122605,7 +122605,7 @@
  {
   "line_id":"CLM-001442-L11",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-23",
   "service_code":"LAB-LFT",
@@ -122618,7 +122618,7 @@
  {
   "line_id":"CLM-001442-L12",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-23",
   "service_code":"CNS-TOI",
@@ -122631,7 +122631,7 @@
  {
   "line_id":"CLM-001442-L13",
   "claim_id":"CLM-001442",
-  "invoice_no":"MMC21\/INV\/2026\/004579",
+  "invoice_no":"MMC21\/INV\/2026\/4597",
   "provider_id":"PRV-H021",
   "service_date":"2026-02-23",
   "service_code":"CNS-MSK",
@@ -128050,6 +128050,19 @@
   "amount":580.0
  },
  {
+  "line_id":"CLM-001502-L13",
+  "claim_id":"CLM-001502",
+  "invoice_no":"KCH28\/INV\/2026\/001117",
+  "provider_id":"PRV-H028",
+  "service_date":"2026-09-05",
+  "service_code":"RAD-ECHO",
+  "description":"2D echocardiography",
+  "category":"radiology",
+  "quantity":1.0,
+  "unit_price":3300.0,
+  "amount":3300.0
+ },
+ {
   "line_id":"CLM-001503-L01",
   "claim_id":"CLM-001503",
   "invoice_no":"PD04\/INV\/2026\/001466",
@@ -132455,6 +132468,19 @@
   "quantity":1.0,
   "unit_price":300.0,
   "amount":300.0
+ },
+ {
+  "line_id":"CLM-001553-L13",
+  "claim_id":"CLM-001553",
+  "invoice_no":"DH27\/INV\/2026\/003734",
+  "provider_id":"PRV-H027",
+  "service_date":"2026-09-06",
+  "service_code":"LAB-LFT",
+  "description":"Liver function test",
+  "category":"lab",
+  "quantity":1.0,
+  "unit_price":660.0,
+  "amount":660.0
  },
  {
   "line_id":"CLM-001554-L01",
@@ -140272,7 +140298,7 @@
  {
   "line_id":"CLM-001669-L01",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-12",
   "service_code":"ROOM-WRD",
@@ -140285,7 +140311,7 @@
  {
   "line_id":"CLM-001669-L02",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-12",
   "service_code":"CON-IP",
@@ -140298,7 +140324,7 @@
  {
   "line_id":"CLM-001669-L03",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-13",
   "service_code":"CON-IP",
@@ -140311,7 +140337,7 @@
  {
   "line_id":"CLM-001669-L04",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-14",
   "service_code":"CON-IP",
@@ -140324,7 +140350,7 @@
  {
   "line_id":"CLM-001669-L05",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-12",
   "service_code":"LAB-CBC",
@@ -140337,7 +140363,7 @@
  {
   "line_id":"CLM-001669-L06",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-13",
   "service_code":"PRC-ORIF",
@@ -140350,7 +140376,7 @@
  {
   "line_id":"CLM-001669-L07",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-13",
   "service_code":"OT-CHG",
@@ -140363,7 +140389,7 @@
  {
   "line_id":"CLM-001669-L08",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-13",
   "service_code":"ANS-GEN",
@@ -140376,7 +140402,7 @@
  {
   "line_id":"CLM-001669-L09",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-14",
   "service_code":"PHA-MED",
@@ -140389,7 +140415,7 @@
  {
   "line_id":"CLM-001669-L10",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-12",
   "service_code":"RAD-XRL",
@@ -140402,7 +140428,7 @@
  {
   "line_id":"CLM-001669-L11",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-14",
   "service_code":"RAD-XRL",
@@ -140415,7 +140441,7 @@
  {
   "line_id":"CLM-001669-L12",
   "claim_id":"CLM-001669",
-  "invoice_no":"KMH13\/INV\/2026\/001294",
+  "invoice_no":"KMH13\/INV\/2026\/001299",
   "provider_id":"PRV-H013",
   "service_date":"2026-09-12",
   "service_code":"CNS-TOI",
@@ -143362,6 +143388,19 @@
   "quantity":1.0,
   "unit_price":430.0,
   "amount":430.0
+ },
+ {
+  "line_id":"CLM-001706-L17",
+  "claim_id":"CLM-001706",
+  "invoice_no":"BMH02\/INV\/2026\/001983",
+  "provider_id":"PRV-H002",
+  "service_date":"2026-09-08",
+  "service_code":"LAB-LFT",
+  "description":"Liver function test",
+  "category":"lab",
+  "quantity":1.0,
+  "unit_price":1130.0,
+  "amount":1130.0
  },
  {
   "line_id":"CLM-001707-L01",
@@ -150889,6 +150928,19 @@
   "quantity":1.0,
   "unit_price":6950.0,
   "amount":6950.0
+ },
+ {
+  "line_id":"CLM-001785-L16",
+  "claim_id":"CLM-001785",
+  "invoice_no":"SMH09\/INV\/2026\/003625",
+  "provider_id":"PRV-H009",
+  "service_date":"2026-09-10",
+  "service_code":"RAD-ECHO",
+  "description":"2D echocardiography",
+  "category":"radiology",
+  "quantity":1.0,
+  "unit_price":2420.0,
+  "amount":2420.0
  },
  {
   "line_id":"CLM-001786-L01",
@@ -169951,7 +170003,7 @@
  {
   "line_id":"CLM-001998-L01",
   "claim_id":"CLM-001998",
-  "invoice_no":"PD04\/INV\/2026\/001464",
+  "invoice_no":"PD04\/INV\/2026\/001466",
   "provider_id":"PRV-D004",
   "service_date":"2026-09-22",
   "service_code":"CON-SPL",
@@ -169964,7 +170016,7 @@
  {
   "line_id":"CLM-001998-L02",
   "claim_id":"CLM-001998",
-  "invoice_no":"PD04\/INV\/2026\/001464",
+  "invoice_no":"PD04\/INV\/2026\/001466",
   "provider_id":"PRV-D004",
   "service_date":"2026-09-22",
   "service_code":"RAD-XRL",
@@ -169977,7 +170029,7 @@
  {
   "line_id":"CLM-001998-L03",
   "claim_id":"CLM-001998",
-  "invoice_no":"PD04\/INV\/2026\/001464",
+  "invoice_no":"PD04\/INV\/2026\/001466",
   "provider_id":"PRV-D004",
   "service_date":"2026-09-22",
   "service_code":"RAD-MRI",
@@ -184050,8 +184102,8 @@
   "description":"Laparoscopic cholecystectomy",
   "category":"procedure",
   "quantity":1.0,
-  "unit_price":51960.0,
-  "amount":51960.0
+  "unit_price":62350.0,
+  "amount":62350.0
  },
  {
   "line_id":"CLM-002163-L07",
@@ -189434,6 +189486,19 @@
   "quantity":1.0,
   "unit_price":9480.0,
   "amount":9480.0
+ },
+ {
+  "line_id":"CLM-002224-L15",
+  "claim_id":"CLM-002224",
+  "invoice_no":"CCH07\/INV\/2026\/002233",
+  "provider_id":"PRV-H007",
+  "service_date":"2026-10-09",
+  "service_code":"LAB-LFT",
+  "description":"Liver function test",
+  "category":"lab",
+  "quantity":1.0,
+  "unit_price":1140.0,
+  "amount":1140.0
  },
  {
   "line_id":"CLM-002225-L01",
@@ -197388,8 +197453,8 @@
   "description":"Laparoscopic cholecystectomy",
   "category":"procedure",
   "quantity":1.0,
-  "unit_price":61190.0,
-  "amount":61190.0
+  "unit_price":73430.0,
+  "amount":73430.0
  },
  {
   "line_id":"CLM-002312-L07",
@@ -198701,8 +198766,8 @@
   "description":"Laparoscopic cholecystectomy",
   "category":"procedure",
   "quantity":1.0,
-  "unit_price":71380.0,
-  "amount":71380.0
+  "unit_price":85660.0,
+  "amount":85660.0
  },
  {
   "line_id":"CLM-002328-L07",
@@ -205968,8 +206033,8 @@
   "description":"Appendectomy (laparoscopic)",
   "category":"procedure",
   "quantity":1.0,
-  "unit_price":56140.0,
-  "amount":56140.0
+  "unit_price":61750.0,
+  "amount":61750.0
  },
  {
   "line_id":"CLM-002407-L07",
@@ -209296,8 +209361,8 @@
   "description":"Pharmacy - medicines",
   "category":"pharmacy",
   "quantity":1.0,
-  "unit_price":6820.0,
-  "amount":6820.0
+  "unit_price":7840.0,
+  "amount":7840.0
  },
  {
   "line_id":"CLM-002439-L01",
@@ -215048,7 +215113,7 @@
  {
   "line_id":"CLM-002512-L01",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-08",
   "service_code":"ROOM-WRD",
@@ -215061,7 +215126,7 @@
  {
   "line_id":"CLM-002512-L02",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-08",
   "service_code":"CON-IP",
@@ -215074,7 +215139,7 @@
  {
   "line_id":"CLM-002512-L03",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-09",
   "service_code":"CON-IP",
@@ -215087,7 +215152,7 @@
  {
   "line_id":"CLM-002512-L04",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-10",
   "service_code":"CON-IP",
@@ -215100,7 +215165,7 @@
  {
   "line_id":"CLM-002512-L05",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-11",
   "service_code":"CON-IP",
@@ -215113,7 +215178,7 @@
  {
   "line_id":"CLM-002512-L06",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-08",
   "service_code":"LAB-PLT",
@@ -215126,7 +215191,7 @@
  {
   "line_id":"CLM-002512-L07",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-09",
   "service_code":"LAB-PLT",
@@ -215139,7 +215204,7 @@
  {
   "line_id":"CLM-002512-L08",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-10",
   "service_code":"LAB-PLT",
@@ -215152,7 +215217,7 @@
  {
   "line_id":"CLM-002512-L09",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-11",
   "service_code":"LAB-PLT",
@@ -215165,7 +215230,7 @@
  {
   "line_id":"CLM-002512-L10",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-08",
   "service_code":"LAB-DNS1",
@@ -215178,7 +215243,7 @@
  {
   "line_id":"CLM-002512-L11",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-08",
   "service_code":"LAB-CBC",
@@ -215191,7 +215256,7 @@
  {
   "line_id":"CLM-002512-L12",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-08",
   "service_code":"PHA-IV",
@@ -215204,7 +215269,7 @@
  {
   "line_id":"CLM-002512-L13",
   "claim_id":"CLM-002512",
-  "invoice_no":"MH26\/INV\/2026\/001910",
+  "invoice_no":"MH26\/INV\/2026\/1901",
   "provider_id":"PRV-H026",
   "service_date":"2026-10-11",
   "service_code":"PHA-MED",

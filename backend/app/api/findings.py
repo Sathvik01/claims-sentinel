@@ -1,16 +1,20 @@
 from collections import defaultdict
 from datetime import date
 
-from fastapi import APIRouter, Depends, Header, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 from sqlmodel import Session, col, select
 
 from app.ai.explainer import explain
+from app.auth.deps import require
 from app.db import get_session
+from app.models import User
 from app.engine.base import CATEGORY_LABELS
-from app.models import Claim, ClaimAssessment, Finding, FindingAction, InvoiceLine, Policy, Provider, Settlement
+from app.models import (Claim, ClaimAssessment, ClaimDecision, Document, DocumentScan, Finding, FindingDecision,
+                        InvoiceLine, Policy, Provider, Settlement)
 
 router = APIRouter(prefix="/api", tags=["findings"])
+VIEW = Depends(require("findings:view"))
 
 
 class Filters(BaseModel):
@@ -69,7 +73,7 @@ def _row(f: Finding, c: Claim, providers: dict) -> dict:
         "requested_amount": c.requested_amount}
 
 
-@router.get("/findings")
+@router.get("/findings", dependencies=[VIEW])
 def list_findings(flt: Filters = Depends(), sort: str = "-leakage_amount", limit: int = Query(500, le=5000),
                   session: Session = Depends(get_session)):
     providers = {p.provider_id: p for p in session.exec(select(Provider))}
@@ -81,7 +85,7 @@ def list_findings(flt: Filters = Depends(), sort: str = "-leakage_amount", limit
     return {"total": len(rows), "items": rows[:limit]}
 
 
-@router.get("/dashboard/summary")
+@router.get("/dashboard/summary", dependencies=[VIEW])
 def summary(flt: Filters = Depends(), session: Session = Depends(get_session)):
     claims = [c for c in session.exec(select(Claim).where(Claim.status == "PENDING")) if _claim_ok(c, flt)]
     pairs = _filtered(session, flt)
@@ -125,72 +129,50 @@ def _claim_bundle(session: Session, claim_id: str) -> dict:
     c = session.get(Claim, claim_id)
     if not c:
         raise HTTPException(404, f"Claim {claim_id} not found")
+    from app.api.claims import review_status, suggested_amount
+
     lines = session.exec(select(InvoiceLine).where(InvoiceLine.claim_id == claim_id)
                          .order_by(col(InvoiceLine.line_id))).all()
+    findings = session.exec(select(Finding).where(Finding.claim_id == claim_id)).all()
+    decisions = session.exec(select(ClaimDecision).where(ClaimDecision.claim_id == claim_id)
+                             .order_by(col(ClaimDecision.id))).all()
+    assessment = session.get(ClaimAssessment, claim_id)
+    status = "PAID" if c.status == "PAID" else review_status(findings, decisions[-1] if decisions else None)
+    doc = session.exec(select(Document).where(Document.claim_id == claim_id)).first()
+    scan = None if doc is None else session.exec(select(DocumentScan).where(DocumentScan.doc_id == doc.id)
+                                                 .order_by(col(DocumentScan.id).desc())).first()
     return {"claim": c, "lines": lines, "policy": session.get(Policy, c.policy_no),
             "provider": session.get(Provider, c.provider_id),
             "settlements": session.exec(select(Settlement).where(Settlement.claim_id == claim_id)).all(),
-            "assessment": session.get(ClaimAssessment, claim_id),
-            "findings": [f.model_dump(exclude={"evidence"}) | {"category_label": CATEGORY_LABELS.get(f.category)}
-                         for f in session.exec(select(Finding).where(Finding.claim_id == claim_id))]}
+            "assessment": assessment,
+            "findings": [f.model_dump(exclude={"evidence"}) | {"category_label": CATEGORY_LABELS.get(f.category),
+                                                                "effective_amount": _effective(f)}
+                         for f in findings],
+            "decisions": decisions, "review_status": status,
+            "suggested_amount": suggested_amount(c, findings, assessment),
+            "document": None if doc is None else {"id": doc.id, "filename": doc.filename,
+                                                  "scan": None if scan is None else scan.model_dump()}}
 
 
-@router.get("/claims/{claim_id}")
+@router.get("/claims/{claim_id}", dependencies=[Depends(require("claims:view"))])
 def get_claim(claim_id: str, session: Session = Depends(get_session)):
     return _claim_bundle(session, claim_id)
 
 
-@router.get("/findings/{finding_id}")
+@router.get("/findings/{finding_id}", dependencies=[VIEW])
 def get_finding(finding_id: int, session: Session = Depends(get_session)):
     f = session.get(Finding, finding_id)
     if not f:
         raise HTTPException(404, "Finding not found")
     related = _claim_bundle(session, f.related_claim_id) if f.related_claim_id else None
-    actions = session.exec(select(FindingAction).where(FindingAction.finding_id == finding_id)
-                           .order_by(col(FindingAction.id))).all()
+    actions = session.exec(select(FindingDecision).where(FindingDecision.finding_id == finding_id)
+                           .order_by(col(FindingDecision.id))).all()
     return {"finding": f.model_dump() | {"category_label": CATEGORY_LABELS.get(f.category),
                                          "effective_amount": _effective(f)},
             "claim": _claim_bundle(session, f.claim_id), "related": related, "actions": actions}
 
 
-class ActionBody(BaseModel):
-    action: str  # CONFIRM | CORRECT | DISMISS | REOPEN
-    reason: str | None = None
-    amount: float | None = None
-
-
-@router.post("/findings/{finding_id}/action")
-def act(finding_id: int, body: ActionBody, session: Session = Depends(get_session),
-        x_user: str = Header("reviewer@demo"), x_role: str = Header("reviewer")):
-    if x_role not in ("reviewer", "admin"):
-        raise HTTPException(403, "Only reviewers can change findings")
-    f = session.get(Finding, finding_id)
-    if not f:
-        raise HTTPException(404, "Finding not found")
-    action = body.action.upper()
-    old = _effective(f)
-    if action == "CONFIRM":
-        f.status = "CONFIRMED"
-    elif action == "CORRECT":
-        if body.amount is None or body.amount < 0 or not (body.reason or "").strip():
-            raise HTTPException(422, "Correction needs a non-negative amount and a reason")
-        f.status, f.corrected_amount = "CORRECTED", round(body.amount, 2)
-    elif action == "DISMISS":
-        if not (body.reason or "").strip():
-            raise HTTPException(422, "Dismissal needs a reason")
-        f.status = "DISMISSED"
-    elif action == "REOPEN":
-        f.status, f.corrected_amount = "OPEN", None
-    else:
-        raise HTTPException(422, f"Unknown action {body.action}")
-    session.add(FindingAction(finding_id=f.id, user=x_user, role=x_role, action=action, reason=body.reason,
-                              old_amount=old, new_amount=_effective(f)))
-    session.add(f)
-    session.commit()
-    return get_finding(finding_id, session)
-
-
-@router.post("/findings/{finding_id}/explain")
+@router.post("/findings/{finding_id}/explain", dependencies=[VIEW])
 def explain_finding(finding_id: int, refresh: bool = False, session: Session = Depends(get_session)):
     f = session.get(Finding, finding_id)
     if not f:

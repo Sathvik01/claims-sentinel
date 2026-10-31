@@ -153,9 +153,11 @@ def test_sample_dataset_against_ground_truth():
 
     from app.main import app
 
+    from tests.conftest import auth_headers
+
     with TestClient(app) as c:
-        assert c.post("/api/demo/load-sample").status_code == 200
-        ev = c.get("/api/evaluation").json()
+        assert c.post("/api/demo/load-sample", headers=auth_headers(c, "admin")).status_code == 200
+        ev = c.get("/api/evaluation", headers=auth_headers(c, "admin")).json()
     assert ev["available"]
     assert ev["recall"] >= 0.95 and ev["precision"] >= 0.95
     assert ev["false_flags_on_legit"] == 0

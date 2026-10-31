@@ -450,8 +450,9 @@ class Generator:
                 c.invoice_no = f"{digits[0]}/{digits[1].lstrip('0')}"
             else:
                 c.invoice_no = f"{digits[0]}/{digits[1][:-2]}{digits[1][-1]}{digits[1][-2]}"
-                if c.invoice_no == s.invoice_no:
-                    c.invoice_no = f"{digits[0]}/{int(digits[1]) + 1:06d}"
+                if c.invoice_no == s.invoice_no or any(o.invoice_no == c.invoice_no for o in self.claims if o is not c):
+                    # a transposition can equal another patient's real invoice; unpadded refs are never issued
+                    c.invoice_no = f"{digits[0]}/{digits[1].lstrip('0')}"
             for l in c.lines:
                 if l["category"] == "pharmacy":
                     l["unit_price"] = l["amount"] = float(round(l["amount"] * r.uniform(0.94, 1.06), -1))
@@ -675,6 +676,7 @@ class Generator:
                 total = sum(d["amount"] for d in c.deductions)
                 c.proposed = finalize(c.billed - applied, terms, c.mode)
                 c.expected = finalize(c.billed - total, terms)
+                c.terms = terms  # Level 2 mutations recompute with the same terms
 
         # 14 provider outliers & 15 legitimate look-alikes are labelled after the fact
         for c in self.claims:
@@ -687,6 +689,123 @@ class Generator:
                             note=f"recurring {c.kind}: must not be flagged")
         _ = r
 
+    # ------------------------------------------------------------ Level 2: contacts + cross-claim links
+    def add_contacts_and_links(self, seed: int):
+        """Separate RNG so the Level 1 dataset (and its claim ids) is unchanged."""
+        r = random.Random(seed + 101)
+        fake = Faker("en_IN")
+        fake.seed_instance(seed + 101)
+        for pol in self.policies:  # a household shares address, phone and the holder's bank account
+            pol["_address"] = ", ".join(fake.address().splitlines())
+            pol["_phone"] = f"+91 9{r.randint(100000000, 999999999)}"
+            pol["_payout"] = f"{r.choice(['HDFC', 'ICIC', 'SBIN', 'UTIB', 'KKBK'])}0{r.randint(100000, 999999)} XXXXXX{r.randint(1000, 9999)}"
+        for m in self.members:
+            m["phone"], m["address"] = m["_policy"]["_phone"], m["_policy"]["_address"]
+
+        planted = {g["claim"].claim_id for g in self.gt}
+        clean = [c for c in self.claims if c.status == "PENDING" and not c.tags and c.claim_id not in planted
+                 and c.claim_id.startswith("CLM-0")]
+        by_provider: dict[str, list[GClaim]] = defaultdict(list)
+        for c in clean:
+            by_provider[c.provider["provider_id"]].append(c)
+
+        def pick_cross_policy(n: int, used: set) -> list[GClaim] | None:
+            for pid in r.sample(sorted(by_provider), len(by_provider)):
+                cands, pols = [], set()
+                for c in by_provider[pid]:
+                    if c.claim_id not in used and c.policy["policy_no"] not in pols:
+                        cands.append(c)
+                        pols.add(c.policy["policy_no"])
+                if len(cands) >= n:
+                    return r.sample(cands, n)
+            return None
+
+        used: set[str] = set()
+        # 18: same provider invoice number billed under two different policies (the Level 2 spec example)
+        for _ in range(2):
+            a, b = pick_cross_policy(2, used)
+            first, second = sorted((a, b), key=lambda c: c.claim_id)
+            second.invoice_no = first.invoice_no
+            for l in second.lines:
+                l["invoice_no"] = first.invoice_no
+            used |= {a.claim_id, b.claim_id}
+            for c in (first, second):
+                c.tags.add("xpol_invoice")
+                self.add_gt(c, "18_cross_policy_invoice", "RELATED_CLAIMS", "SUSPECTED_PATTERN",
+                            note=f"invoice {first.invoice_no} on {first.claim_id} and {second.claim_id}")
+        # 19: related-party ring — claimants on three policies paid into one account at one provider
+        ring = pick_cross_policy(3, used)
+        account = f"YESB0{r.randint(100000, 999999)} XXXXXX{r.randint(1000, 9999)}"
+        for c in ring:
+            c.payout = account
+            c.tags.add("ring")
+            used.add(c.claim_id)
+            self.add_gt(c, "19_related_party_ring", "RELATED_CLAIMS", "SUSPECTED_PATTERN",
+                        note=f"payout account {account} shared by {len(ring)} policies")
+        # 20: look-alike — two households at one address with one phone (relatives), unrelated treatment
+        others = [c for c in clean if c.claim_id not in used]
+        a = r.choice(others)
+        b = r.choice([c for c in others if c.policy["policy_no"] != a.policy["policy_no"]
+                      and c.provider["provider_id"] != a.provider["provider_id"]])
+        for m in self.members:
+            if m["policy_no"] == b.policy["policy_no"]:
+                m["address"], m["phone"] = a.member["address"], a.member["phone"]
+        for c in (a, b):
+            c.tags.add("shared_address")
+            self.add_gt(c, "20_shared_address_lookalike", "NONE", "NONE",
+                        note="relatives on separate policies share address/phone: must not be flagged")
+
+    def add_document_evidence(self, seed: int):
+        """Bill + discharge summary for ~60 clean inpatient claims. The documents show what the hospital
+        actually billed; for 20 of them the claim record is then altered (21-24), so comparing claim against
+        document must find exactly those differences, and nothing on the other 40."""
+        r = random.Random(seed + 202)
+        planted = {g["claim"].claim_id for g in self.gt}
+        pool = [c for c in self.claims if c.status == "PENDING" and not c.tags and c.claim_type == "INPATIENT"
+                and c.claim_id not in planted and c.claim_id.startswith("CLM-0") and c.discharge
+                and any(l["category"] == "room" for l in c.lines)]
+        docset = r.sample(pool, min(60, len(pool)))
+        hero = next(c for c in self.claims if c.claim_id == "CLM-DEMO-01")
+        for c in docset + [hero]:
+            c.tags.add("docset")
+            c.doc_lines = [dict(l) for l in c.lines]
+            c.doc_admission, c.doc_discharge = c.admission, c.discharge
+
+        def missed(c: GClaim, kind: str, amount: float):
+            c.deductions.append(dict(kind=kind, amount=round(amount, 2), missed=True))
+            applied = sum(d["amount"] for d in c.deductions if not d["missed"])
+            total = sum(d["amount"] for d in c.deductions)
+            c.proposed = finalize(c.billed - applied, c.terms, c.mode)
+            c.expected = finalize(c.billed - total, c.terms)
+
+        groups = [docset[i * 5:(i + 1) * 5] for i in range(4)]
+        for c in groups[0]:  # 21: a charge in the claim that is not on the hospital bill
+            ln = self.line(r.choice(["RAD-CT", "LAB-LFT", "RAD-ECHO"]), c.incident, c.provider)
+            ln.update(line_id=f"{c.claim_id}-L{len(c.lines) + 1:02d}", claim_id=c.claim_id, invoice_no=c.invoice_no)
+            c.lines.append(ln)
+            missed(c, "doc_extra_line", ln["amount"])
+            self.add_gt(c, "21_claim_line_not_on_bill", "DOCUMENT_MISMATCH", note=f"{ln['service_code']} not on bill")
+        for c in groups[1]:  # 22: claimed amount higher than the bill
+            ln = max((l for l in c.lines if l["category"] in ("procedure", "pharmacy")), key=lambda l: l["amount"])
+            bump = round(ln["amount"] * r.choice([0.1, 0.15, 0.2]), -1)
+            ln["unit_price"] = ln["amount"] = round(ln["amount"] + bump, 2)
+            missed(c, "doc_amount", bump)
+            self.add_gt(c, "22_claim_amount_above_bill", "DOCUMENT_MISMATCH", note=f"{ln['service_code']} +{bump}")
+        for c in groups[2]:  # 23: room days claimed beyond the stay in the discharge summary
+            room = next(l for l in c.lines if l["category"] == "room")
+            billed_days = sum(l["quantity"] for l in c.lines if l["category"] in ("room", "icu"))
+            c.doc_discharge = c.doc_admission + timedelta(days=max(1, int(billed_days) - 2))
+            extra = billed_days - (c.doc_discharge - c.doc_admission).days  # charged at the room rate
+            missed(c, "doc_stay", min(extra, room["quantity"]) * room["unit_price"])
+            self.add_gt(c, "23_stay_longer_than_discharge_summary", "DOCUMENT_MISMATCH",
+                        note=f"{extra:g} room day(s) beyond the stay")
+        for c in groups[3]:  # 24: admission date in the claim differs from the documents (no amount)
+            c.admission = c.incident = c.admission - timedelta(days=r.choice([2, 3]))
+            self.add_gt(c, "24_admission_date_mismatch", "DOCUMENT_MISMATCH", "SUSPECTED_PATTERN",
+                        note="claim admission date earlier than discharge summary")
+        for c in docset[20:]:
+            self.add_gt(c, "25_documents_consistent", "NONE", "NONE", note="claim matches its documents")
+
     # ------------------------------------------------------------ output
     def frames(self) -> dict[str, pd.DataFrame]:
         strip = lambda d: {k: v for k, v in d.items() if not k.startswith("_") and k not in ("overpriced", "prefix")}  # noqa: E731
@@ -698,7 +817,7 @@ class Generator:
                 admission_date=c.admission, discharge_date=c.discharge, diagnosis_code=c.diagnosis,
                 provider_id=c.provider["provider_id"], invoice_no=c.invoice_no, requested_amount=c.billed,
                 proposed_settlement=None if c.no_proposed else c.proposed, submitted_date=c.submitted,
-                status=c.status))
+                status=c.status, payout_account=getattr(c, "payout", None) or c.policy.get("_payout")))
             for l in c.lines:
                 lines.append({k: l[k] for k in ("line_id", "claim_id", "invoice_no", "provider_id", "service_date",
                                                 "service_code", "description", "category", "quantity",
@@ -714,8 +833,11 @@ class Generator:
                    note=g["note"]) for g in self.gt]
         # An injected error that does not change the payable amount (e.g. sum insured already exhausted)
         # is not leakage — keep it out of the ground truth.
+        # An injected error that does not change the payable amount is not leakage: kept, but marked, so a
+        # finding on it is neither required (recall) nor counted as unexpected (precision).
         self.no_impact = [g for g in gt if g["expected_claim_leakage"] is not None and g["expected_claim_leakage"] <= 1]
-        gt = [g for g in gt if g not in self.no_impact]
+        for g in self.no_impact:
+            g["expected_finding_type"], g["expected_claim_leakage"] = "NO_PAYABLE_IMPACT", None
         return {
             "policies": pd.DataFrame([strip(p) for p in self.policies]),
             "policy_rules": pd.DataFrame(policy_rules()),
@@ -785,9 +907,10 @@ def write(frames: dict[str, pd.DataFrame], out: Path, gen: Generator):
         for name in ("policies", "policy_rules", "members", "providers", "claims", "invoice_lines", "settlements"):
             pd.read_csv(out / f"{name}.csv").to_excel(xw, sheet_name=name, index=False)
     dirty_claims(frames).to_csv(out / "claims_dirty.csv", index=False)
-    from app.synthetic.documents import write_documents
+    from app.synthetic.documents import write_claim_evidence, write_documents
 
     write_documents(gen, out / "documents")
+    write_claim_evidence(gen, out / "documents" / "claims")
 
 
 def main():
@@ -804,6 +927,8 @@ def main():
     g.generate_clean(a.history, a.pending)
     g.inject()
     g.finalize()
+    g.add_contacts_and_links(a.seed)
+    g.add_document_evidence(a.seed)
     frames = g.frames()
     write(frames, a.out, g)
     gt = frames["ground_truth"]

@@ -22,6 +22,8 @@ def evaluate(session: Session, gt_path: Path | None = None) -> dict:
     gt = pd.read_csv(gt_path)
     pending = set(session.exec(select(Claim.claim_id).where(Claim.status == "PENDING")))
     gt = gt[gt.claim_id.isin(pending)]
+    no_impact = set(gt[gt.expected_finding_type == "NO_PAYABLE_IMPACT"].claim_id)
+    gt = gt[gt.expected_finding_type != "NO_PAYABLE_IMPACT"]
     if gt.empty:
         return {"available": False, "reason": "ground-truth claims are not loaded"}
 
@@ -54,10 +56,11 @@ def evaluate(session: Session, gt_path: Path | None = None) -> dict:
                               metric="no false flag" if scenario.startswith("15") else "detected"))
 
     planted = set(gt[gt.expected_category != "NONE"].claim_id)
+    anomalous = planted | no_impact
     legit = set(gt[gt.expected_category == "NONE"].claim_id)
     flagged = {cid for cid, fs in by_claim.items() if fs}
-    unexpected = sorted(flagged - planted)
-    true_flags = len(flagged & planted)
+    unexpected = sorted(flagged - anomalous)
+    true_flags = len(flagged & anomalous)
     expected_total = gt[gt.expected_finding_type == "CONFIRMED_VIOLATION"].drop_duplicates("claim_id") \
         .expected_claim_leakage.sum()
     found_total = sum(calculated(cid) for cid in planted)
@@ -67,7 +70,7 @@ def evaluate(session: Session, gt_path: Path | None = None) -> dict:
         "planted_claims": len(planted),
         "flagged_claims": len(flagged),
         "precision": round(true_flags / len(flagged), 3) if flagged else None,
-        "recall": round(true_flags / len(planted), 3) if planted else None,
+        "recall": round(len(flagged & planted) / len(planted), 3) if planted else None,
         "false_flags_on_legit": len(flagged & legit),
         "unexpected_flags": len(unexpected),
         "unexpected_sample": unexpected[:10],
