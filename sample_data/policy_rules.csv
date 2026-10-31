@@ -1,0 +1,34 @@
+rule_id,plan,clause_ref,rule_type,target_type,target,value,description
+SIL-EXC-01,SILVER,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-GLV,,Disposable gloves are non-payable consumables
+SIL-EXC-02,SILVER,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-MSK,,Face masks are non-payable consumables
+SIL-EXC-03,SILVER,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-ADM,,Admission kit are non-payable consumables
+SIL-EXC-04,SILVER,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-TOI,,Toiletries are non-payable consumables
+SIL-EXC-05,SILVER,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-REG,,Registration / file charges are non-payable consumables
+SIL-EXD-01,SILVER,Sec 7.1 (Cosmetic treatment),EXCLUSION_DIAGNOSIS,icd_prefix,Z41,,Cosmetic or aesthetic treatment is excluded
+SIL-SUB-01,SILVER,Sec 5.2 (Cataract sub-limit),SUBLIMIT_PER_CLAIM,code,PRC-CAT,40000.0,"Cataract surgery limited to ₹40,000 per eye"
+SIL-SUB-02,SILVER,Sec 5.4 (Ambulance),SUBLIMIT_PER_CLAIM,category,ambulance,2000.0,"Road ambulance limited to ₹2,000 per hospitalisation"
+SIL-FRQ-01,SILVER,Sec 5.6 (Physiotherapy),FREQUENCY_CAP,category,physio,12.0,Physiotherapy limited to 12 sessions per policy year
+SIL-WAI-01,SILVER,Sec 6.2 (Specific waiting periods),DISEASE_WAITING,icd_prefix,H25,730.0,Cataract: 2-year waiting period
+SIL-WAI-02,SILVER,Sec 6.2 (Specific waiting periods),DISEASE_WAITING,icd_prefix,K40,730.0,Hernia: 2-year waiting period
+GOL-EXC-01,GOLD,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-GLV,,Disposable gloves are non-payable consumables
+GOL-EXC-02,GOLD,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-MSK,,Face masks are non-payable consumables
+GOL-EXC-03,GOLD,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-ADM,,Admission kit are non-payable consumables
+GOL-EXC-04,GOLD,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-TOI,,Toiletries are non-payable consumables
+GOL-EXC-05,GOLD,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-REG,,Registration / file charges are non-payable consumables
+GOL-EXD-01,GOLD,Sec 7.1 (Cosmetic treatment),EXCLUSION_DIAGNOSIS,icd_prefix,Z41,,Cosmetic or aesthetic treatment is excluded
+GOL-SUB-01,GOLD,Sec 5.2 (Cataract sub-limit),SUBLIMIT_PER_CLAIM,code,PRC-CAT,40000.0,"Cataract surgery limited to ₹40,000 per eye"
+GOL-SUB-02,GOLD,Sec 5.4 (Ambulance),SUBLIMIT_PER_CLAIM,category,ambulance,2000.0,"Road ambulance limited to ₹2,000 per hospitalisation"
+GOL-FRQ-01,GOLD,Sec 5.6 (Physiotherapy),FREQUENCY_CAP,category,physio,12.0,Physiotherapy limited to 12 sessions per policy year
+GOL-WAI-01,GOLD,Sec 6.2 (Specific waiting periods),DISEASE_WAITING,icd_prefix,H25,730.0,Cataract: 2-year waiting period
+GOL-WAI-02,GOLD,Sec 6.2 (Specific waiting periods),DISEASE_WAITING,icd_prefix,K40,730.0,Hernia: 2-year waiting period
+PLA-EXC-01,PLATINUM,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-GLV,,Disposable gloves are non-payable consumables
+PLA-EXC-02,PLATINUM,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-MSK,,Face masks are non-payable consumables
+PLA-EXC-03,PLATINUM,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-ADM,,Admission kit are non-payable consumables
+PLA-EXC-04,PLATINUM,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-TOI,,Toiletries are non-payable consumables
+PLA-EXC-05,PLATINUM,Sec 7.3 (Non-payable items),EXCLUSION_CODE,code,CNS-REG,,Registration / file charges are non-payable consumables
+PLA-EXD-01,PLATINUM,Sec 7.1 (Cosmetic treatment),EXCLUSION_DIAGNOSIS,icd_prefix,Z41,,Cosmetic or aesthetic treatment is excluded
+PLA-SUB-01,PLATINUM,Sec 5.2 (Cataract sub-limit),SUBLIMIT_PER_CLAIM,code,PRC-CAT,60000.0,"Cataract surgery limited to ₹60,000 per eye"
+PLA-SUB-02,PLATINUM,Sec 5.4 (Ambulance),SUBLIMIT_PER_CLAIM,category,ambulance,2000.0,"Road ambulance limited to ₹2,000 per hospitalisation"
+PLA-FRQ-01,PLATINUM,Sec 5.6 (Physiotherapy),FREQUENCY_CAP,category,physio,12.0,Physiotherapy limited to 12 sessions per policy year
+PLA-WAI-01,PLATINUM,Sec 6.2 (Specific waiting periods),DISEASE_WAITING,icd_prefix,H25,730.0,Cataract: 2-year waiting period
+PLA-WAI-02,PLATINUM,Sec 6.2 (Specific waiting periods),DISEASE_WAITING,icd_prefix,K40,730.0,Hernia: 2-year waiting period

@@ -1,0 +1,133 @@
+@import "@fontsource-variable/ibm-plex-sans/wdth.css";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/source-serif-4";
+@import "tailwindcss";
+
+/* Ledger aesthetic: paper + ink, hard 1px rules, heavy 2px section rules, no radius, no shadow. */
+:root {
+  color-scheme: light;
+  --bg: #efede6;
+  --panel: #f8f7f3;
+  --sunken: #e7e4db;
+  --line: #d2cfc4;
+  --rule: #141516;
+  --ink: #121314;
+  --ink-2: #48473f;
+  --ink-3: #7f7c72;
+  --accent: #1d5fae;
+  --rail: #141618;
+  --rail-2: #1d2024;
+  --rail-line: #2b2f34;
+  --rail-ink: #e8e6df;
+  --rail-ink-2: #8e8c84;
+  --series-1: #2a78d6; /* calculated */
+  --series-2: #eb6834; /* estimated */
+  --good: #1a6b34;
+  --warn: #8a5d00;
+  --serious: #b04600;
+  --critical: #b3261e;
+  --good-bg: #dfeee2;
+  --warn-bg: #f5e9c8;
+  --serious-bg: #f7e1d0;
+  --critical-bg: #f6dcd8;
+  --info-bg: #dde7f3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --bg: #0d0e0f;
+    --panel: #121314;
+    --sunken: #18191b;
+    --line: #27292c;
+    --rule: #d9d7d0;
+    --ink: #ecebe6;
+    --ink-2: #b3b1a9;
+    --ink-3: #7b7972;
+    --accent: #6aa5ec;
+    --rail: #08090a;
+    --rail-2: #131518;
+    --rail-line: #202326;
+    --rail-ink: #e8e6df;
+    --rail-ink-2: #7f7d76;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --good: #57b977;
+    --warn: #d4a72c;
+    --serious: #f0883e;
+    --critical: #f2665c;
+    --good-bg: #13241a;
+    --warn-bg: #2a220f;
+    --serious-bg: #2c1b0f;
+    --critical-bg: #2e1513;
+    --info-bg: #132239;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--sunken);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-rule: var(--rule);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-rail: var(--rail);
+  --color-rail-2: var(--rail-2);
+  --color-rail-line: var(--rail-line);
+  --color-rail-ink: var(--rail-ink);
+  --color-rail-ink-2: var(--rail-ink-2);
+  --color-s1: var(--series-1);
+  --color-s2: var(--series-2);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+  --color-good-bg: var(--good-bg);
+  --color-warn-bg: var(--warn-bg);
+  --color-serious-bg: var(--serious-bg);
+  --color-critical-bg: var(--critical-bg);
+  --color-info-bg: var(--info-bg);
+
+  --font-sans: "IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+  --font-serif: "Source Serif 4 Variable", "Source Serif 4", Georgia, serif;
+
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+}
+
+html { font-size: 13px; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-stretch: 94%;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+.tabular, .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-stretch: 100%; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+table { border-collapse: collapse; }
+thead th {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }

@@ -1,0 +1,553 @@
+claim_id,scenario,expected_category,expected_finding_type,expected_claim_leakage,note
+CLM-001446,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,1272.0,copy of seq 492
+CLM-001449,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,7930.0,copy of seq 964
+CLM-001450,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,1528.0,copy of seq 965
+CLM-001451,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,24798.0,copy of seq 1063
+CLM-001452,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,82200.0,copy of seq 614
+CLM-001453,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,440.0,copy of seq 399
+CLM-001454,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,59346.0,copy of seq 120
+CLM-001455,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,30.0,copy of seq 113
+CLM-001459,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,22620.0,copy of seq 420
+CLM-001460,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,1020.0,copy of seq 217
+CLM-001461,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,33816.0,copy of seq 169
+CLM-001470,01_exact_duplicate_claim,DUPLICATE_CLAIM,CONFIRMED_VIOLATION,2860.0,copy of seq 648
+CLM-001496,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,328.0,
+CLM-001510,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,330.0,
+CLM-001638,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,536.0,
+CLM-001654,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,774.0,
+CLM-001702,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,544.0,
+CLM-001722,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,261.0,
+CLM-001738,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,360.0,
+CLM-001800,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,120.0,
+CLM-001812,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,225.0,
+CLM-001833,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,2025.0,
+CLM-001849,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,567.0,
+CLM-001880,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,408.0,
+CLM-001891,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,1260.0,
+CLM-001912,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,9200.0,
+CLM-001924,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,1017.0,
+CLM-002002,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,840.0,
+CLM-002017,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,370.0,
+CLM-002118,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,6453.0,
+CLM-002210,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,1104.0,
+CLM-002219,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,310.0,
+CLM-002276,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,297.0,
+CLM-002297,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,296.0,
+CLM-002339,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,954.0,
+CLM-002474,02_duplicate_line_within,DUPLICATE_LINE,CONFIRMED_VIOLATION,670.0,
+CLM-001504,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,590.0,
+CLM-001696,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,750.0,
+CLM-001798,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,1560.0,
+CLM-002027,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,400.0,
+CLM-002038,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,384.0,
+CLM-002137,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,468.0,
+CLM-002284,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,630.0,
+CLM-002308,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,340.0,
+CLM-002324,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,230.0,
+CLM-002429,03_duplicate_line_across,DUPLICATE_LINE,CONFIRMED_VIOLATION,392.0,
+CLM-001441,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001442,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001443,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001444,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001445,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001447,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001448,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001462,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001542,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001690,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001713,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-002108,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-002135,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-002485,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-002512,04_near_duplicate,NEAR_DUPLICATE,SUSPECTED_PATTERN,,
+CLM-001490,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,3600.0,
+CLM-001527,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,10000.0,
+CLM-001551,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,10000.0,
+CLM-001592,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,4500.0,
+CLM-001704,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,4500.0,
+CLM-001730,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,4500.0,
+CLM-001733,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,4800.0,
+CLM-001749,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,4800.0,
+CLM-001831,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,3000.0,
+CLM-001844,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,6000.0,
+CLM-001901,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,3200.0,
+CLM-001922,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,4000.0,
+CLM-001933,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,11250.0,
+CLM-001942,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,3000.0,
+CLM-001960,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,9000.0,
+CLM-002043,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,5400.0,
+CLM-002078,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,3000.0,
+CLM-002113,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,10000.0,
+CLM-002160,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,12500.0,
+CLM-002242,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,4500.0,
+CLM-002277,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,7200.0,
+CLM-002330,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,6750.0,
+CLM-002370,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,10000.0,
+CLM-002417,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,7200.0,
+CLM-002427,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,6750.0,
+CLM-002436,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,3200.0,
+CLM-002451,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,9000.0,
+CLM-002478,05_room_rent_limit,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,8100.0,
+CLM-001554,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,3200.0,
+CLM-001621,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,6000.0,
+CLM-001645,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,3600.0,
+CLM-001725,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,4800.0,
+CLM-001874,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,8000.0,
+CLM-001889,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,7200.0,
+CLM-002054,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,3200.0,
+CLM-002156,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,6000.0,
+CLM-002162,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,3600.0,
+CLM-002202,06_icu_limit,ICU_LIMIT,CONFIRMED_VIOLATION,8000.0,
+CLM-001477,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1287.0,
+CLM-001560,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1608.0,
+CLM-001589,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1750.0,
+CLM-001658,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,2440.0,
+CLM-001775,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1050.0,
+CLM-001808,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,870.0,
+CLM-001814,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1440.0,
+CLM-001834,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,2420.0,
+CLM-001928,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1470.0,
+CLM-001945,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,558.0,
+CLM-001955,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,470.0,
+CLM-001956,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1890.0,
+CLM-001962,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,832.0,
+CLM-001983,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1020.0,
+CLM-002045,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1503.0,
+CLM-002085,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1860.0,
+CLM-002086,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1029.0,
+CLM-002129,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1280.0,
+CLM-002229,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1460.0,
+CLM-002275,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,2268.0,
+CLM-002310,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1160.0,
+CLM-002341,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1548.0,
+CLM-002416,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1935.0,
+CLM-002426,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,976.0,
+CLM-002442,07_excluded_consumables,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,1800.0,
+CLM-001478,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,78730.0,
+CLM-001495,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,97040.0,
+CLM-001603,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,65856.0,
+CLM-001744,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,77656.0,
+CLM-002136,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,96872.0,
+CLM-002233,08_excluded_diagnosis,EXCLUDED_DIAGNOSIS,CONFIRMED_VIOLATION,75600.0,
+CLM-001907,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,1341.0,
+CLM-001959,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,9126.0,
+CLM-002061,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,88010.0,
+CLM-002345,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,7824.0,
+CLM-002377,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,29290.0,
+CLM-002476,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,1755.0,
+CLM-002477,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,82575.0,
+CLM-002487,09_coverage_lapsed,COVERAGE,CONFIRMED_VIOLATION,1024.0,
+CLM-001456,10_waiting_period,WAITING_PERIOD,CONFIRMED_VIOLATION,31660.0,initial 30-day waiting
+CLM-001458,10_waiting_period,WAITING_PERIOD,CONFIRMED_VIOLATION,33180.0,initial 30-day waiting
+CLM-001666,10_waiting_period,WAITING_PERIOD,CONFIRMED_VIOLATION,100740.0,disease-specific 2-year waiting
+CLM-001823,10_waiting_period,WAITING_PERIOD,CONFIRMED_VIOLATION,52430.0,disease-specific 2-year waiting
+CLM-002023,10_waiting_period,WAITING_PERIOD,CONFIRMED_VIOLATION,42270.0,disease-specific 2-year waiting
+CLM-002109,10_waiting_period,WAITING_PERIOD,CONFIRMED_VIOLATION,82910.0,disease-specific 2-year waiting
+CLM-002217,10_waiting_period,WAITING_PERIOD,CONFIRMED_VIOLATION,30555.0,disease-specific 2-year waiting
+CLM-002352,10_waiting_period,WAITING_PERIOD,CONFIRMED_VIOLATION,48390.0,disease-specific 2-year waiting
+CLM-001474,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,2000.0,ambulance
+CLM-001535,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,8800.0,cataract
+CLM-001580,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,9000.0,cataract
+CLM-001634,11_sub_limit,FREQUENCY_CAP,CONFIRMED_VIOLATION,2360.0,10 prior + 6 sessions vs cap 12
+CLM-001667,11_sub_limit,FREQUENCY_CAP,CONFIRMED_VIOLATION,2400.0,10 prior + 6 sessions vs cap 12
+CLM-001703,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,12600.0,cataract
+CLM-001768,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,1500.0,ambulance
+CLM-001824,11_sub_limit,FREQUENCY_CAP,CONFIRMED_VIOLATION,1836.0,10 prior + 6 sessions vs cap 12
+CLM-001958,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,13000.0,cataract
+CLM-002121,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,1350.0,ambulance
+CLM-002251,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,2000.0,ambulance
+CLM-002254,11_sub_limit,SUB_LIMIT,CONFIRMED_VIOLATION,1600.0,ambulance
+CLM-002267,11_sub_limit,FREQUENCY_CAP,CONFIRMED_VIOLATION,1696.0,10 prior + 6 sessions vs cap 12
+CLM-002420,11_sub_limit,FREQUENCY_CAP,CONFIRMED_VIOLATION,1456.0,10 prior + 6 sessions vs cap 12
+CLM-001467,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,deductible not applied
+CLM-001531,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,19748.0,sum insured exceeded
+CLM-001590,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,79136.0,sum insured exceeded
+CLM-001641,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,370.0,co-pay not applied
+CLM-001786,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,3018.0,co-pay 10% instead of 20%
+CLM-001796,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,205.0,co-pay 10% instead of 20%
+CLM-001865,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,33190.0,sum insured exceeded
+CLM-001939,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,11526.0,co-pay not applied
+CLM-001961,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,deductible not applied
+CLM-001965,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,8527.0,co-pay not applied
+CLM-002034,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,deductible not applied
+CLM-002059,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,2500.0,deductible not applied
+CLM-002099,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,167.0,co-pay not applied
+CLM-002116,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,69440.0,sum insured exceeded
+CLM-002174,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,deductible not applied
+CLM-002212,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,2502.0,co-pay 10% instead of 20%
+CLM-002218,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,4610.0,co-pay 10% instead of 20%
+CLM-002282,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,deductible not applied
+CLM-002291,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,3276.0,co-pay 10% instead of 20%
+CLM-002382,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,3070.0,co-pay not applied
+CLM-002432,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,21001.0,sum insured exceeded
+CLM-002450,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,329.0,co-pay 10% instead of 20%
+CLM-002452,12_settlement_miscalc,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,1000.0,deductible not applied
+CLM-001518,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,2700.0,
+CLM-001548,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,2250.0,
+CLM-001772,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,8000.0,
+CLM-001828,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,5000.0,
+CLM-001920,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,1800.0,
+CLM-002040,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,4000.0,
+CLM-002247,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,2250.0,
+CLM-002325,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,1800.0,
+CLM-002386,13_arithmetic_error,ARITHMETIC_ERROR,CONFIRMED_VIOLATION,7000.0,
+CLM-001459,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-001556,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-001762,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-001894,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-001900,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-001940,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-001984,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-002098,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-002129,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-002153,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-002164,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-002214,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-002236,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-002389,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-002421,14_provider_outlier,PROVIDER_OUTLIER,SUSPECTED_PATTERN,,
+CLM-001468,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001469,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001493,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001494,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001505,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001507,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001508,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001522,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001530,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001534,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001536,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001537,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001538,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001539,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001540,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001541,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001561,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001562,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001563,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001564,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001582,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001583,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001584,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001585,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001586,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001591,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001596,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001601,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001602,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001612,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001616,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001617,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001624,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001630,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001631,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001632,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001633,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001651,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001656,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001660,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001661,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001662,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001663,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001664,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001665,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001678,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001680,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001681,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001682,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001683,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001684,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001685,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001686,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001687,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001688,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001689,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001698,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001707,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001708,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001709,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001710,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001711,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001712,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001716,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001720,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001726,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001735,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001737,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001742,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001743,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001746,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001755,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001763,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001764,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001765,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001766,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001767,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001777,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001781,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001787,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001788,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001789,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001791,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001793,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001799,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001806,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001811,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001813,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001817,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001818,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001819,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001820,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001821,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001822,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001825,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001835,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001839,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001840,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001841,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001842,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001852,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001853,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001854,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001855,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001856,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001857,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001858,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001859,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001860,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001862,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001866,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001867,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001869,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001879,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001883,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001884,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001885,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001886,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001890,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001897,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001905,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001906,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001908,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001909,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001910,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001931,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001934,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001936,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001941,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001947,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001950,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001951,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001952,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001953,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001957,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001966,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001967,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001968,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001969,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001970,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001971,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001972,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001979,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-001980,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001982,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-001987,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001988,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001989,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-001990,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-002006,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002007,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002008,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002009,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002010,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002011,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-002015,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002016,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002020,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002021,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002022,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002026,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002029,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002030,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002031,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002032,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002033,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002046,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002051,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002065,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002066,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002067,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002068,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002069,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002074,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002087,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002090,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002091,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002092,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002093,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002100,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002101,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002102,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002103,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002104,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002105,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002106,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002107,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-002115,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002119,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002124,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002132,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002133,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002134,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002142,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002147,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002150,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002154,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002155,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002157,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002159,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002169,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002170,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002171,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002172,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002173,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002176,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002178,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002180,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002188,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002194,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002195,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002216,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002230,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002231,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002232,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002246,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002249,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002255,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002256,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002262,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002263,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002264,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002265,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002266,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002279,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002281,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002283,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002285,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002286,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002287,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002288,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-002293,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002295,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002298,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002303,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002317,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002318,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002319,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002320,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002321,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-002327,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002344,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002347,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002350,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002351,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002360,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002381,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002399,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002400,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002401,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002402,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002403,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002404,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002405,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002406,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002418,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002419,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002433,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002434,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002443,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002445,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002453,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002454,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002455,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002456,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002457,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002458,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002459,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002460,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002461,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002465,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002466,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002467,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002468,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002469,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002470,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002471,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002472,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002473,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002475,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002479,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002483,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002484,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002488,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002490,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002493,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002494,15_legitimate_lookalike,NONE,NONE,,recurring physio: must not be flagged
+CLM-002500,15_legitimate_lookalike,NONE,NONE,,recurring dengue: must not be flagged
+CLM-002501,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002502,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002503,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002504,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002505,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002506,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002507,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002508,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002509,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002510,15_legitimate_lookalike,NONE,NONE,,recurring dialysis: must not be flagged
+CLM-002511,15_legitimate_lookalike,NONE,NONE,,recurring chemo: must not be flagged
+CLM-001500,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing diagnosis
+CLM-001520,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing discharge date
+CLM-001559,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing diagnosis
+CLM-001672,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing diagnosis
+CLM-001759,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing diagnosis
+CLM-001784,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing diagnosis
+CLM-001919,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing invoice number
+CLM-002018,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing discharge date
+CLM-002079,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing invoice number
+CLM-002123,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing invoice number
+CLM-002167,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing invoice number
+CLM-002177,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing invoice number
+CLM-002235,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing discharge date
+CLM-002329,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing discharge date
+CLM-002385,16_incomplete_evidence,INCOMPLETE_EVIDENCE,NEEDS_INFO,,missing discharge date
+CLM-001549,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,6240.0,
+CLM-001549,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,6240.0,
+CLM-001549,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,6240.0,
+CLM-001805,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,8100.0,
+CLM-001805,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,8100.0,
+CLM-001805,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,8100.0,
+CLM-001843,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,13572.0,
+CLM-001843,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,13572.0,
+CLM-001843,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,13572.0,
+CLM-002050,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,7554.0,
+CLM-002050,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,7554.0,
+CLM-002050,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,7554.0,
+CLM-002225,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,15995.0,
+CLM-002225,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,15995.0,
+CLM-002225,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,15995.0,
+CLM-002374,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,12050.0,
+CLM-002374,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,12050.0,
+CLM-002374,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,12050.0,
+CLM-002387,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,27222.0,
+CLM-002387,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,27222.0,
+CLM-002387,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,27222.0,
+CLM-002431,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,8180.0,
+CLM-002431,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,8180.0,
+CLM-002431,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,8180.0,
+CLM-002480,17_combined,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,9720.0,
+CLM-002480,17_combined,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,9720.0,
+CLM-002480,17_combined,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,9720.0,
+CLM-DEMO-01,17_combined_hero,DUPLICATE_LINE,CONFIRMED_VIOLATION,25882.0,Problem-statement example
+CLM-DEMO-01,17_combined_hero,ROOM_RENT_LIMIT,CONFIRMED_VIOLATION,25882.0,Problem-statement example
+CLM-DEMO-01,17_combined_hero,EXCLUDED_SERVICE,CONFIRMED_VIOLATION,25882.0,Problem-statement example
+CLM-DEMO-01,17_combined_hero,SETTLEMENT_MISCALC,CONFIRMED_VIOLATION,25882.0,Problem-statement example

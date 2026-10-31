@@ -1,0 +1,43 @@
+provider_id,name,provider_type,city,tier,network
+PRV-H001,Choudhury Multispeciality Hospital,HOSPITAL,Lucknow,2,True
+PRV-H002,Bakshi Multispeciality Hospital,HOSPITAL,Mumbai,1,True
+PRV-H003,Maharaj Multispeciality Hospital,HOSPITAL,Pune,1,True
+PRV-H004,Konda Care Hospital,HOSPITAL,Jaipur,2,True
+PRV-H005,Kapoor Medical Centre,HOSPITAL,Lucknow,2,False
+PRV-H006,Dewan Care Hospital,HOSPITAL,Bengaluru,1,True
+PRV-H007,Chaudry Care Hospital,HOSPITAL,Chennai,1,True
+PRV-H008,Chahal Medical Centre,HOSPITAL,Nashik,3,True
+PRV-H009,Sami Multispeciality Hospital,HOSPITAL,Indore,2,True
+PRV-H010,Balay Hospital,HOSPITAL,Mysuru,3,True
+PRV-H011,Balan Multispeciality Hospital,HOSPITAL,Mysuru,3,True
+PRV-H012,Chander Care Hospital,HOSPITAL,Pune,1,True
+PRV-H013,Kamdar Multispeciality Hospital,HOSPITAL,Bengaluru,1,True
+PRV-H014,Kaul Medical Centre,HOSPITAL,Chennai,1,True
+PRV-H015,Tiwari Hospital,HOSPITAL,Lucknow,2,True
+PRV-H016,Bala Care Hospital,HOSPITAL,Bengaluru,1,True
+PRV-H017,Issac Multispeciality Hospital,HOSPITAL,Lucknow,2,True
+PRV-H018,Saini Multispeciality Hospital,HOSPITAL,Nagpur,2,False
+PRV-H019,Kannan Multispeciality Hospital,HOSPITAL,Mumbai,1,True
+PRV-H020,Sen Medical Centre,HOSPITAL,Indore,2,True
+PRV-H021,Mall Medical Centre,HOSPITAL,Hubballi,3,False
+PRV-H022,Ahuja Hospital,HOSPITAL,Lucknow,2,True
+PRV-H023,Dutta Multispeciality Hospital,HOSPITAL,Udaipur,3,True
+PRV-H024,Sami Medical Centre,HOSPITAL,Delhi,1,False
+PRV-H025,Oak Care Hospital,HOSPITAL,Delhi,1,True
+PRV-H026,Mall Hospital,HOSPITAL,Hubballi,3,True
+PRV-H027,Dugal Hospital,HOSPITAL,Udaipur,3,False
+PRV-H028,Kale Care Hospital,HOSPITAL,Delhi,1,True
+PRV-H029,Nayar Hospital,HOSPITAL,Jaipur,2,True
+PRV-H030,Chaudry Multispeciality Hospital,HOSPITAL,Mumbai,1,True
+PRV-D001,Chanda Scan Centre,DIAGNOSTIC,Coimbatore,2,False
+PRV-D002,Rai Imaging & Labs,DIAGNOSTIC,Lucknow,2,True
+PRV-D003,Chatterjee Imaging & Labs,DIAGNOSTIC,Coimbatore,2,True
+PRV-D004,Parmer Diagnostics,DIAGNOSTIC,Guntur,3,True
+PRV-D005,Padmanabhan Scan Centre,DIAGNOSTIC,Delhi,1,True
+PRV-C001,Lalla Wellness Clinic,CLINIC,Jaipur,2,True
+PRV-C002,Bassi Physio & Rehab Clinic,CLINIC,Udaipur,3,True
+PRV-C003,Sharaf Kidney Care Centre,CLINIC,Nashik,3,False
+PRV-C004,Yadav Kidney Care Centre,CLINIC,Hubballi,3,True
+PRV-C005,Dash Physio & Rehab Clinic,CLINIC,Hyderabad,1,True
+PRV-C006,Radhakrishnan Wellness Clinic,CLINIC,Indore,2,True
+PRV-C007,Brar Physio & Rehab Clinic,CLINIC,Lucknow,2,True

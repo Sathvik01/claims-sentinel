@@ -1,0 +1,338 @@
+[
+ {
+  "provider_id":"PRV-H001",
+  "name":"Choudhury Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Lucknow",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H002",
+  "name":"Bakshi Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Mumbai",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H003",
+  "name":"Maharaj Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Pune",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H004",
+  "name":"Konda Care Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Jaipur",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H005",
+  "name":"Kapoor Medical Centre",
+  "provider_type":"HOSPITAL",
+  "city":"Lucknow",
+  "tier":2,
+  "network":false
+ },
+ {
+  "provider_id":"PRV-H006",
+  "name":"Dewan Care Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Bengaluru",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H007",
+  "name":"Chaudry Care Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Chennai",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H008",
+  "name":"Chahal Medical Centre",
+  "provider_type":"HOSPITAL",
+  "city":"Nashik",
+  "tier":3,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H009",
+  "name":"Sami Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Indore",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H010",
+  "name":"Balay Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Mysuru",
+  "tier":3,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H011",
+  "name":"Balan Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Mysuru",
+  "tier":3,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H012",
+  "name":"Chander Care Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Pune",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H013",
+  "name":"Kamdar Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Bengaluru",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H014",
+  "name":"Kaul Medical Centre",
+  "provider_type":"HOSPITAL",
+  "city":"Chennai",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H015",
+  "name":"Tiwari Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Lucknow",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H016",
+  "name":"Bala Care Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Bengaluru",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H017",
+  "name":"Issac Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Lucknow",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H018",
+  "name":"Saini Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Nagpur",
+  "tier":2,
+  "network":false
+ },
+ {
+  "provider_id":"PRV-H019",
+  "name":"Kannan Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Mumbai",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H020",
+  "name":"Sen Medical Centre",
+  "provider_type":"HOSPITAL",
+  "city":"Indore",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H021",
+  "name":"Mall Medical Centre",
+  "provider_type":"HOSPITAL",
+  "city":"Hubballi",
+  "tier":3,
+  "network":false
+ },
+ {
+  "provider_id":"PRV-H022",
+  "name":"Ahuja Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Lucknow",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H023",
+  "name":"Dutta Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Udaipur",
+  "tier":3,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H024",
+  "name":"Sami Medical Centre",
+  "provider_type":"HOSPITAL",
+  "city":"Delhi",
+  "tier":1,
+  "network":false
+ },
+ {
+  "provider_id":"PRV-H025",
+  "name":"Oak Care Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Delhi",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H026",
+  "name":"Mall Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Hubballi",
+  "tier":3,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H027",
+  "name":"Dugal Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Udaipur",
+  "tier":3,
+  "network":false
+ },
+ {
+  "provider_id":"PRV-H028",
+  "name":"Kale Care Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Delhi",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H029",
+  "name":"Nayar Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Jaipur",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-H030",
+  "name":"Chaudry Multispeciality Hospital",
+  "provider_type":"HOSPITAL",
+  "city":"Mumbai",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-D001",
+  "name":"Chanda Scan Centre",
+  "provider_type":"DIAGNOSTIC",
+  "city":"Coimbatore",
+  "tier":2,
+  "network":false
+ },
+ {
+  "provider_id":"PRV-D002",
+  "name":"Rai Imaging & Labs",
+  "provider_type":"DIAGNOSTIC",
+  "city":"Lucknow",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-D003",
+  "name":"Chatterjee Imaging & Labs",
+  "provider_type":"DIAGNOSTIC",
+  "city":"Coimbatore",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-D004",
+  "name":"Parmer Diagnostics",
+  "provider_type":"DIAGNOSTIC",
+  "city":"Guntur",
+  "tier":3,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-D005",
+  "name":"Padmanabhan Scan Centre",
+  "provider_type":"DIAGNOSTIC",
+  "city":"Delhi",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-C001",
+  "name":"Lalla Wellness Clinic",
+  "provider_type":"CLINIC",
+  "city":"Jaipur",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-C002",
+  "name":"Bassi Physio & Rehab Clinic",
+  "provider_type":"CLINIC",
+  "city":"Udaipur",
+  "tier":3,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-C003",
+  "name":"Sharaf Kidney Care Centre",
+  "provider_type":"CLINIC",
+  "city":"Nashik",
+  "tier":3,
+  "network":false
+ },
+ {
+  "provider_id":"PRV-C004",
+  "name":"Yadav Kidney Care Centre",
+  "provider_type":"CLINIC",
+  "city":"Hubballi",
+  "tier":3,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-C005",
+  "name":"Dash Physio & Rehab Clinic",
+  "provider_type":"CLINIC",
+  "city":"Hyderabad",
+  "tier":1,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-C006",
+  "name":"Radhakrishnan Wellness Clinic",
+  "provider_type":"CLINIC",
+  "city":"Indore",
+  "tier":2,
+  "network":true
+ },
+ {
+  "provider_id":"PRV-C007",
+  "name":"Brar Physio & Rehab Clinic",
+  "provider_type":"CLINIC",
+  "city":"Lucknow",
+  "tier":2,
+  "network":true
+ }
+]

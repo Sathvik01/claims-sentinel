@@ -1,0 +1,332 @@
+[
+ {
+  "rule_id":"SIL-EXC-01",
+  "plan":"SILVER",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-GLV",
+  "value":null,
+  "description":"Disposable gloves are non-payable consumables"
+ },
+ {
+  "rule_id":"SIL-EXC-02",
+  "plan":"SILVER",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-MSK",
+  "value":null,
+  "description":"Face masks are non-payable consumables"
+ },
+ {
+  "rule_id":"SIL-EXC-03",
+  "plan":"SILVER",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-ADM",
+  "value":null,
+  "description":"Admission kit are non-payable consumables"
+ },
+ {
+  "rule_id":"SIL-EXC-04",
+  "plan":"SILVER",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-TOI",
+  "value":null,
+  "description":"Toiletries are non-payable consumables"
+ },
+ {
+  "rule_id":"SIL-EXC-05",
+  "plan":"SILVER",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-REG",
+  "value":null,
+  "description":"Registration \/ file charges are non-payable consumables"
+ },
+ {
+  "rule_id":"SIL-EXD-01",
+  "plan":"SILVER",
+  "clause_ref":"Sec 7.1 (Cosmetic treatment)",
+  "rule_type":"EXCLUSION_DIAGNOSIS",
+  "target_type":"icd_prefix",
+  "target":"Z41",
+  "value":null,
+  "description":"Cosmetic or aesthetic treatment is excluded"
+ },
+ {
+  "rule_id":"SIL-SUB-01",
+  "plan":"SILVER",
+  "clause_ref":"Sec 5.2 (Cataract sub-limit)",
+  "rule_type":"SUBLIMIT_PER_CLAIM",
+  "target_type":"code",
+  "target":"PRC-CAT",
+  "value":40000.0,
+  "description":"Cataract surgery limited to ₹40,000 per eye"
+ },
+ {
+  "rule_id":"SIL-SUB-02",
+  "plan":"SILVER",
+  "clause_ref":"Sec 5.4 (Ambulance)",
+  "rule_type":"SUBLIMIT_PER_CLAIM",
+  "target_type":"category",
+  "target":"ambulance",
+  "value":2000.0,
+  "description":"Road ambulance limited to ₹2,000 per hospitalisation"
+ },
+ {
+  "rule_id":"SIL-FRQ-01",
+  "plan":"SILVER",
+  "clause_ref":"Sec 5.6 (Physiotherapy)",
+  "rule_type":"FREQUENCY_CAP",
+  "target_type":"category",
+  "target":"physio",
+  "value":12.0,
+  "description":"Physiotherapy limited to 12 sessions per policy year"
+ },
+ {
+  "rule_id":"SIL-WAI-01",
+  "plan":"SILVER",
+  "clause_ref":"Sec 6.2 (Specific waiting periods)",
+  "rule_type":"DISEASE_WAITING",
+  "target_type":"icd_prefix",
+  "target":"H25",
+  "value":730.0,
+  "description":"Cataract: 2-year waiting period"
+ },
+ {
+  "rule_id":"SIL-WAI-02",
+  "plan":"SILVER",
+  "clause_ref":"Sec 6.2 (Specific waiting periods)",
+  "rule_type":"DISEASE_WAITING",
+  "target_type":"icd_prefix",
+  "target":"K40",
+  "value":730.0,
+  "description":"Hernia: 2-year waiting period"
+ },
+ {
+  "rule_id":"GOL-EXC-01",
+  "plan":"GOLD",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-GLV",
+  "value":null,
+  "description":"Disposable gloves are non-payable consumables"
+ },
+ {
+  "rule_id":"GOL-EXC-02",
+  "plan":"GOLD",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-MSK",
+  "value":null,
+  "description":"Face masks are non-payable consumables"
+ },
+ {
+  "rule_id":"GOL-EXC-03",
+  "plan":"GOLD",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-ADM",
+  "value":null,
+  "description":"Admission kit are non-payable consumables"
+ },
+ {
+  "rule_id":"GOL-EXC-04",
+  "plan":"GOLD",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-TOI",
+  "value":null,
+  "description":"Toiletries are non-payable consumables"
+ },
+ {
+  "rule_id":"GOL-EXC-05",
+  "plan":"GOLD",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-REG",
+  "value":null,
+  "description":"Registration \/ file charges are non-payable consumables"
+ },
+ {
+  "rule_id":"GOL-EXD-01",
+  "plan":"GOLD",
+  "clause_ref":"Sec 7.1 (Cosmetic treatment)",
+  "rule_type":"EXCLUSION_DIAGNOSIS",
+  "target_type":"icd_prefix",
+  "target":"Z41",
+  "value":null,
+  "description":"Cosmetic or aesthetic treatment is excluded"
+ },
+ {
+  "rule_id":"GOL-SUB-01",
+  "plan":"GOLD",
+  "clause_ref":"Sec 5.2 (Cataract sub-limit)",
+  "rule_type":"SUBLIMIT_PER_CLAIM",
+  "target_type":"code",
+  "target":"PRC-CAT",
+  "value":40000.0,
+  "description":"Cataract surgery limited to ₹40,000 per eye"
+ },
+ {
+  "rule_id":"GOL-SUB-02",
+  "plan":"GOLD",
+  "clause_ref":"Sec 5.4 (Ambulance)",
+  "rule_type":"SUBLIMIT_PER_CLAIM",
+  "target_type":"category",
+  "target":"ambulance",
+  "value":2000.0,
+  "description":"Road ambulance limited to ₹2,000 per hospitalisation"
+ },
+ {
+  "rule_id":"GOL-FRQ-01",
+  "plan":"GOLD",
+  "clause_ref":"Sec 5.6 (Physiotherapy)",
+  "rule_type":"FREQUENCY_CAP",
+  "target_type":"category",
+  "target":"physio",
+  "value":12.0,
+  "description":"Physiotherapy limited to 12 sessions per policy year"
+ },
+ {
+  "rule_id":"GOL-WAI-01",
+  "plan":"GOLD",
+  "clause_ref":"Sec 6.2 (Specific waiting periods)",
+  "rule_type":"DISEASE_WAITING",
+  "target_type":"icd_prefix",
+  "target":"H25",
+  "value":730.0,
+  "description":"Cataract: 2-year waiting period"
+ },
+ {
+  "rule_id":"GOL-WAI-02",
+  "plan":"GOLD",
+  "clause_ref":"Sec 6.2 (Specific waiting periods)",
+  "rule_type":"DISEASE_WAITING",
+  "target_type":"icd_prefix",
+  "target":"K40",
+  "value":730.0,
+  "description":"Hernia: 2-year waiting period"
+ },
+ {
+  "rule_id":"PLA-EXC-01",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-GLV",
+  "value":null,
+  "description":"Disposable gloves are non-payable consumables"
+ },
+ {
+  "rule_id":"PLA-EXC-02",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-MSK",
+  "value":null,
+  "description":"Face masks are non-payable consumables"
+ },
+ {
+  "rule_id":"PLA-EXC-03",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-ADM",
+  "value":null,
+  "description":"Admission kit are non-payable consumables"
+ },
+ {
+  "rule_id":"PLA-EXC-04",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-TOI",
+  "value":null,
+  "description":"Toiletries are non-payable consumables"
+ },
+ {
+  "rule_id":"PLA-EXC-05",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 7.3 (Non-payable items)",
+  "rule_type":"EXCLUSION_CODE",
+  "target_type":"code",
+  "target":"CNS-REG",
+  "value":null,
+  "description":"Registration \/ file charges are non-payable consumables"
+ },
+ {
+  "rule_id":"PLA-EXD-01",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 7.1 (Cosmetic treatment)",
+  "rule_type":"EXCLUSION_DIAGNOSIS",
+  "target_type":"icd_prefix",
+  "target":"Z41",
+  "value":null,
+  "description":"Cosmetic or aesthetic treatment is excluded"
+ },
+ {
+  "rule_id":"PLA-SUB-01",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 5.2 (Cataract sub-limit)",
+  "rule_type":"SUBLIMIT_PER_CLAIM",
+  "target_type":"code",
+  "target":"PRC-CAT",
+  "value":60000.0,
+  "description":"Cataract surgery limited to ₹60,000 per eye"
+ },
+ {
+  "rule_id":"PLA-SUB-02",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 5.4 (Ambulance)",
+  "rule_type":"SUBLIMIT_PER_CLAIM",
+  "target_type":"category",
+  "target":"ambulance",
+  "value":2000.0,
+  "description":"Road ambulance limited to ₹2,000 per hospitalisation"
+ },
+ {
+  "rule_id":"PLA-FRQ-01",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 5.6 (Physiotherapy)",
+  "rule_type":"FREQUENCY_CAP",
+  "target_type":"category",
+  "target":"physio",
+  "value":12.0,
+  "description":"Physiotherapy limited to 12 sessions per policy year"
+ },
+ {
+  "rule_id":"PLA-WAI-01",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 6.2 (Specific waiting periods)",
+  "rule_type":"DISEASE_WAITING",
+  "target_type":"icd_prefix",
+  "target":"H25",
+  "value":730.0,
+  "description":"Cataract: 2-year waiting period"
+ },
+ {
+  "rule_id":"PLA-WAI-02",
+  "plan":"PLATINUM",
+  "clause_ref":"Sec 6.2 (Specific waiting periods)",
+  "rule_type":"DISEASE_WAITING",
+  "target_type":"icd_prefix",
+  "target":"K40",
+  "value":730.0,
+  "description":"Hernia: 2-year waiting period"
+ }
+]
